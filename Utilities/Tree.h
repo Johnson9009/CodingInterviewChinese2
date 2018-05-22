@@ -14,6 +14,12 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #pragma once
 
+#ifdef _WIN32
+#define EXPORT __declspec (dllexport)
+#else
+#define EXPORT
+#endif
+
 #include <vector>
 
 struct TreeNode 
@@ -22,8 +28,8 @@ struct TreeNode
     std::vector<TreeNode*>    m_vChildren;    
 };
 
-TreeNode* CreateTreeNode(int value);
-void ConnectTreeNodes(TreeNode* pParent, TreeNode* pChild);
-void PrintTreeNode(const TreeNode* pNode);
-void PrintTree(const TreeNode* pRoot);
-void DestroyTree(TreeNode* pRoot);
+EXPORT TreeNode* CreateTreeNode(int value);
+EXPORT void ConnectTreeNodes(TreeNode* pParent, TreeNode* pChild);
+EXPORT void PrintTreeNode(const TreeNode* pNode);
+EXPORT void PrintTree(const TreeNode* pRoot);
+EXPORT void DestroyTree(TreeNode* pRoot);

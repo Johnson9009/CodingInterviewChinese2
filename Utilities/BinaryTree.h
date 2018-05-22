@@ -14,6 +14,12 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #pragma once
 
+#ifdef _WIN32
+#define EXPORT __declspec (dllexport)
+#else
+#define EXPORT
+#endif
+
 struct BinaryTreeNode 
 {
     int                    m_nValue; 
@@ -21,8 +27,8 @@ struct BinaryTreeNode
     BinaryTreeNode*        m_pRight; 
 };
 
-BinaryTreeNode* CreateBinaryTreeNode(int value);
-void ConnectTreeNodes(BinaryTreeNode* pParent, BinaryTreeNode* pLeft, BinaryTreeNode* pRight);
-void PrintTreeNode(const BinaryTreeNode* pNode);
-void PrintTree(const BinaryTreeNode* pRoot);
-void DestroyTree(BinaryTreeNode* pRoot);
+EXPORT BinaryTreeNode* CreateBinaryTreeNode(int value);
+EXPORT void ConnectTreeNodes(BinaryTreeNode* pParent, BinaryTreeNode* pLeft, BinaryTreeNode* pRight);
+EXPORT void PrintTreeNode(const BinaryTreeNode* pNode);
+EXPORT void PrintTree(const BinaryTreeNode* pRoot);
+EXPORT void DestroyTree(BinaryTreeNode* pRoot);

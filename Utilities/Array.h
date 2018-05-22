@@ -14,4 +14,10 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #pragma once
 
-int Partition(int data[], int length, int start, int end);
+#ifdef _WIN32
+#define EXPORT __declspec (dllexport)
+#else
+#define EXPORT
+#endif
+
+EXPORT int Partition(int data[], int length, int start, int end);

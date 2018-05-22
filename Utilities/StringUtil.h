@@ -7,9 +7,15 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
+#ifdef _WIN32
+#define EXPORT __declspec (dllexport)
+#else
+#define EXPORT
+#endif
+
 //==================================================================
 // 《剑指Offer——名企面试官精讲典型编程题》代码
 // 作者：何海涛
 //==================================================================
 
-void Reverse(char *pBegin, char *pEnd);
+EXPORT void Reverse(char *pBegin, char *pEnd);

@@ -67,7 +67,7 @@ public:
     {
         int size = min.size() + max.size();
         if(size == 0)
-            throw exception("No numbers are available");
+            throw "No numbers are available";
 
         T median = 0;
         if((size & 1) == 1)

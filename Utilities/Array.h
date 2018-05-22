@@ -14,4 +14,4 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #pragma once
 
-__declspec( dllexport ) int Partition(int data[], int length, int start, int end);
+int Partition(int data[], int length, int start, int end);

@@ -45,7 +45,7 @@ public:
     void pop_front()
     {
         if(maximums.empty())
-            throw new exception("queue is empty");
+            throw "queue is empty";
 
         if(maximums.front().index == data.front().index)
             maximums.pop_front();
@@ -56,7 +56,7 @@ public:
     T max() const
     {
         if(maximums.empty())
-            throw new exception("queue is empty");
+            throw "queue is empty";
 
         return maximums.front().number;
     }

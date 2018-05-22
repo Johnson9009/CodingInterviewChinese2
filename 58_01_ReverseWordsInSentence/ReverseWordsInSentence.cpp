@@ -18,8 +18,9 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // ‘Ú ‰≥ˆ"student. a am I"°£
 
 #include <cstdio>
-#include "..\Utilities\StringUtil.h"
+#include "../Utilities/StringUtil.h"
 #include <string>
+#include <cstring>
 
 char* ReverseSentence(char *pData)
 {

@@ -17,7 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 任意结点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。
 
 #include <cstdio>
-#include "..\Utilities\BinaryTree.h"
+#include "../Utilities/BinaryTree.h"
 
 // ====================方法1====================
 int TreeDepth(const BinaryTreeNode* pRoot)

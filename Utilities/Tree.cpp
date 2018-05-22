@@ -13,6 +13,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 //==================================================================
 
 #include "Tree.h"
+#include <cstdio>
 
 TreeNode* CreateTreeNode(int value)
 {

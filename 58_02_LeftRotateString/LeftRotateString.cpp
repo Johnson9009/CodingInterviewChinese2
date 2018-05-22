@@ -18,7 +18,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 字2，该函数将返回左旋转2位得到的结果"cdefgab"。
 
 #include <cstdio>
-#include "..\Utilities\StringUtil.h"
+#include "../Utilities/StringUtil.h"
 #include <string.h>
 
 char* LeftRotateString(char* pStr, int n)

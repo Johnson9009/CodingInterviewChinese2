@@ -18,7 +18,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 2, 4, 7, 3, 5, 6, 8}和中序遍历序列{4, 7, 2, 1, 5, 3, 8, 6}，则重建出
 // 图2.6所示的二叉树并输出它的头结点。
 
-#include "..\Utilities\BinaryTree.h"
+#include "../Utilities/BinaryTree.h"
 #include <exception>
 #include <cstdio>
 
@@ -50,7 +50,7 @@ BinaryTreeNode* ConstructCore
         if(startInorder == endInorder && *startPreorder == *startInorder)
             return root;
         else
-            throw std::exception("Invalid input.");
+            throw "Invalid input.";
     }
 
     // 在中序遍历中找到根结点的值
@@ -59,7 +59,7 @@ BinaryTreeNode* ConstructCore
         ++ rootInorder;
 
     if(rootInorder == endInorder && *rootInorder != rootValue)
-        throw std::exception("Invalid input.");
+        throw "Invalid input.";
 
     int leftLength = rootInorder - startInorder;
     int* leftPreorderEnd = startPreorder + leftLength;

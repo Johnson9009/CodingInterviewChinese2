@@ -17,7 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
 
 #include <cstdio>
-#include "..\Utilities\BinaryTree.h"
+#include "../Utilities/BinaryTree.h"
 
 int TreeDepth(const BinaryTreeNode* pRoot)
 {

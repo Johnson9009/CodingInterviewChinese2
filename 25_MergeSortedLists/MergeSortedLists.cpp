@@ -18,7 +18,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // ±í3ËùÊ¾¡£
 
 #include <cstdio>
-#include "..\Utilities\List.h"
+#include "../Utilities/List.h"
 
 ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
 {

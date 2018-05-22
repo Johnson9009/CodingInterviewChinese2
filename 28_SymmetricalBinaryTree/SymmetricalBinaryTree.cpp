@@ -297,7 +297,7 @@ void Test10()
     DestroyTree(pNode1);
 }
 
-void main(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
     Test1();
     Test2();
@@ -309,4 +309,5 @@ void main(int argc, char* argv[])
     Test8();
     Test9();
     Test10();
+    return 0;
 }

@@ -12,4 +12,4 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 作者：何海涛
 //==================================================================
 
-__declspec( dllexport ) void Reverse(char *pBegin, char *pEnd);
+void Reverse(char *pBegin, char *pEnd);

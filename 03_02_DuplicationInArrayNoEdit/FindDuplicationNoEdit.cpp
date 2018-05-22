@@ -162,7 +162,7 @@ void test10()
     test("test10", numbers, 0, duplications, sizeof(duplications) / sizeof(int));
 }
 
-void main()
+int main()
 {
     test1();
     test2();
@@ -174,4 +174,5 @@ void main()
     test8();
     test9();
     test10();
+    return 0;
 }

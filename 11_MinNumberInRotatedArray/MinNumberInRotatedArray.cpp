@@ -25,7 +25,7 @@ int MinInOrder(int* numbers, int index1, int index2);
 int Min(int* numbers, int length)
 {
     if(numbers == nullptr || length <= 0)
-        throw new std::exception("Invalid parameters");
+        throw "Invalid parameters";
  
     int index1 = 0;
     int index2 = length - 1;

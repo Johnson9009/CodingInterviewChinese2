@@ -20,6 +20,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include "cstdio"
 #include <string>
 #include <algorithm>
+#include <cstring>
 
 int compare(const void* strNumber1, const void* strNumber2);
 

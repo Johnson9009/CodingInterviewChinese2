@@ -16,7 +16,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 题目：输入两个树结点，求它们的最低公共祖先。
 
 #include <cstdio>
-#include "..\Utilities\Tree.h"
+#include "../Utilities/Tree.h"
 #include <list>
 
 using namespace std;

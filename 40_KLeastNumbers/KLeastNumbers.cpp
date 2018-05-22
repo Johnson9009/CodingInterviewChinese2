@@ -17,7 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 这8个数字，则最小的4个数字是1、2、3、4。
 
 #include <cstdio>
-#include "..\Utilities\Array.h"
+#include "../Utilities/Array.h"
 
 #include <set>
 #include <vector>

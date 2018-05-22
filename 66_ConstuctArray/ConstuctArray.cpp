@@ -17,6 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 中B中的元素B[i] =A[0]×A[1]×… ×A[i-1]×A[i+1]×…×A[n-1]。不能使用除法。
 
 #include <cstdio>
+#include <cmath>
 #include <vector>
 
 using namespace std;
@@ -61,7 +62,7 @@ static bool EqualArrays(const vector<double>& input, const vector<double>& outpu
     return true;
 }
 
-static void test(char* testName, const vector<double>& input, vector<double>& output, const vector<double>& expected)
+static void test(char* testName, const vector<double>&& input, vector<double>&& output, const vector<double>&& expected)
 {
     printf("%s Begins: ", testName);
 

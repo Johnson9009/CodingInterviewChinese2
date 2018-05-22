@@ -18,6 +18,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #include <cstdio>
 #include <memory>
+#include <cstring>
 
 void PrintNumber(char* number);
 bool Increment(char* number);

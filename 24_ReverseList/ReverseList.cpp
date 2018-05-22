@@ -17,7 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // Í·½áµã¡£
 
 #include <cstdio>
-#include "..\Utilities\List.h"
+#include "../Utilities/List.h"
 
 ListNode* ReverseList(ListNode* pHead)
 {

@@ -18,7 +18,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 出现了5次，超过数组长度的一半，因此输出2。
 
 #include <cstdio>
-#include "..\Utilities\Array.h"
+#include "../Utilities/Array.h"
 
 bool g_bInputInvalid = false;
 

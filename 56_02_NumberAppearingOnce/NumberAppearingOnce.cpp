@@ -22,7 +22,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 int FindNumberAppearingOnce(int numbers[], int length)
 {
     if(numbers == nullptr || length <= 0)
-        throw new std::exception("Invalid input.");
+        throw "Invalid input.";
 
     int bitSum[32] = {0};
     for(int i = 0; i < length; ++i)

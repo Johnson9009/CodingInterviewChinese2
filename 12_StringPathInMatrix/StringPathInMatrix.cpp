@@ -26,6 +26,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <cstdio>
 #include <string>
 #include <stack>
+#include <cstring>
 
 using namespace std;
 

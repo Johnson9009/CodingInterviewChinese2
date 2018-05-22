@@ -17,6 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 和deleteHead，分别完成在队列尾部插入结点和在队列头部删除结点的功能。
 
 #include "Queue.h"
+#include <cstdio>
 
 // ====================测试代码====================
 void Test(char actual, char expected)

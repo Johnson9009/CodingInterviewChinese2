@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ23£ºÁ´±íÖÐ»·µÄÈë¿Ú½áµã
-// ÌâÄ¿£ºÒ»¸öÁ´±íÖÐ°üº¬»·£¬ÈçºÎÕÒ³ö»·µÄÈë¿Ú½áµã£¿ÀýÈç£¬ÔÚÍ¼3.8µÄÁ´±íÖÐ£¬
-// »·µÄÈë¿Ú½áµãÊÇ½áµã3¡£
+// é¢è¯•é¢˜23ï¼šé“¾è¡¨ä¸­çŽ¯çš„å…¥å£ç»“ç‚¹
+// é¢˜ç›®ï¼šä¸€ä¸ªé“¾è¡¨ä¸­åŒ…å«çŽ¯ï¼Œå¦‚ä½•æ‰¾å‡ºçŽ¯çš„å…¥å£ç»“ç‚¹ï¼Ÿä¾‹å¦‚ï¼Œåœ¨å›¾3.8çš„é“¾è¡¨ä¸­ï¼Œ
+// çŽ¯çš„å…¥å£ç»“ç‚¹æ˜¯ç»“ç‚¹3ã€‚
 
 #include <cstdio>
 #include "../Utilities/List.h"
@@ -50,7 +50,7 @@ ListNode* EntryNodeOfLoop(ListNode* pHead)
     if(meetingNode == nullptr)
         return nullptr;
 
-    // µÃµ½»·ÖÐ½áµãµÄÊýÄ¿
+    // å¾—åˆ°çŽ¯ä¸­ç»“ç‚¹çš„æ•°ç›®
     int nodesInLoop = 1;
     ListNode* pNode1 = meetingNode;
     while(pNode1->m_pNext != meetingNode)
@@ -59,12 +59,12 @@ ListNode* EntryNodeOfLoop(ListNode* pHead)
         ++nodesInLoop;
     }
 
-    // ÏÈÒÆ¶¯pNode1£¬´ÎÊýÎª»·ÖÐ½áµãµÄÊýÄ¿
+    // å…ˆç§»åŠ¨pNode1ï¼Œæ¬¡æ•°ä¸ºçŽ¯ä¸­ç»“ç‚¹çš„æ•°ç›®
     pNode1 = pHead;
     for(int i = 0; i < nodesInLoop; ++i)
         pNode1 = pNode1->m_pNext;
 
-    // ÔÙÒÆ¶¯pNode1ºÍpNode2
+    // å†ç§»åŠ¨pNode1å’ŒpNode2
     ListNode* pNode2 = pHead;
     while(pNode1 != pNode2)
     {

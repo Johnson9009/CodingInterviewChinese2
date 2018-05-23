@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ18£¨Ò»£©£ºÔÚO(1)Ê±¼äÉ¾³ıÁ´±í½áµã
-// ÌâÄ¿£º¸ø¶¨µ¥ÏòÁ´±íµÄÍ·Ö¸ÕëºÍÒ»¸ö½áµãÖ¸Õë£¬¶¨ÒåÒ»¸öº¯ÊıÔÚO(1)Ê±¼äÉ¾³ı¸Ã
-// ½áµã¡£
+// é¢è¯•é¢˜18ï¼ˆä¸€ï¼‰ï¼šåœ¨O(1)æ—¶é—´åˆ é™¤é“¾è¡¨ç»“ç‚¹
+// é¢˜ç›®ï¼šç»™å®šå•å‘é“¾è¡¨çš„å¤´æŒ‡é’ˆå’Œä¸€ä¸ªç»“ç‚¹æŒ‡é’ˆï¼Œå®šä¹‰ä¸€ä¸ªå‡½æ•°åœ¨O(1)æ—¶é—´åˆ é™¤è¯¥
+// ç»“ç‚¹ã€‚
 
 #include <cstdio>
 #include "../Utilities/List.h"
@@ -24,7 +24,7 @@ void DeleteNode(ListNode** pListHead, ListNode* pToBeDeleted)
     if(!pListHead || !pToBeDeleted)
         return;
 
-    // ÒªÉ¾³ıµÄ½áµã²»ÊÇÎ²½áµã
+    // è¦åˆ é™¤çš„ç»“ç‚¹ä¸æ˜¯å°¾ç»“ç‚¹
     if(pToBeDeleted->m_pNext != nullptr)
     {
         ListNode* pNext = pToBeDeleted->m_pNext;
@@ -34,14 +34,14 @@ void DeleteNode(ListNode** pListHead, ListNode* pToBeDeleted)
         delete pNext;
         pNext = nullptr;
     }
-    // Á´±íÖ»ÓĞÒ»¸ö½áµã£¬É¾³ıÍ·½áµã£¨Ò²ÊÇÎ²½áµã£©
+    // é“¾è¡¨åªæœ‰ä¸€ä¸ªç»“ç‚¹ï¼Œåˆ é™¤å¤´ç»“ç‚¹ï¼ˆä¹Ÿæ˜¯å°¾ç»“ç‚¹ï¼‰
     else if(*pListHead == pToBeDeleted)
     {
         delete pToBeDeleted;
         pToBeDeleted = nullptr;
         *pListHead = nullptr;
     }
-    // Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÎ²½áµã
+    // é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤å°¾ç»“ç‚¹
     else
     {
         ListNode* pNode = *pListHead;
@@ -56,7 +56,7 @@ void DeleteNode(ListNode** pListHead, ListNode* pToBeDeleted)
     }
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(ListNode* pListHead, ListNode* pNode)
 {
     printf("The original list is: \n");
@@ -71,7 +71,7 @@ void Test(ListNode* pListHead, ListNode* pNode)
     PrintList(pListHead);
 }
 
-// Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÖĞ¼äµÄ½áµã
+// é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤ä¸­é—´çš„ç»“ç‚¹
 void Test1()
 {
     ListNode* pNode1 = CreateListNode(1);
@@ -90,7 +90,7 @@ void Test1()
     DestroyList(pNode1);
 }
 
-// Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÎ²½áµã
+// é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤å°¾ç»“ç‚¹
 void Test2()
 {
     ListNode* pNode1 = CreateListNode(1);
@@ -109,7 +109,7 @@ void Test2()
     DestroyList(pNode1);
 }
 
-// Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÍ·½áµã
+// é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤å¤´ç»“ç‚¹
 void Test3()
 {
     ListNode* pNode1 = CreateListNode(1);
@@ -128,7 +128,7 @@ void Test3()
     DestroyList(pNode1);
 }
 
-// Á´±íÖĞÖ»ÓĞÒ»¸ö½áµã£¬É¾³ıÍ·½áµã
+// é“¾è¡¨ä¸­åªæœ‰ä¸€ä¸ªç»“ç‚¹ï¼Œåˆ é™¤å¤´ç»“ç‚¹
 void Test4()
 {
     ListNode* pNode1 = CreateListNode(1);
@@ -136,7 +136,7 @@ void Test4()
     Test(pNode1, pNode1);
 }
 
-// Á´±íÎª¿Õ
+// é“¾è¡¨ä¸ºç©º
 void Test5()
 {
     Test(nullptr, nullptr);

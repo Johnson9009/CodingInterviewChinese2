@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ9£ºÓÃÁ½¸öÕ»ÊµÏÖ¶ÓÁÐ
-// ÌâÄ¿£ºÓÃÁ½¸öÕ»ÊµÏÖÒ»¸ö¶ÓÁÐ¡£¶ÓÁÐµÄÉùÃ÷ÈçÏÂ£¬ÇëÊµÏÖËüµÄÁ½¸öº¯ÊýappendTail
-// ºÍdeleteHead£¬·Ö±ðÍê³ÉÔÚ¶ÓÁÐÎ²²¿²åÈë½áµãºÍÔÚ¶ÓÁÐÍ·²¿É¾³ý½áµãµÄ¹¦ÄÜ¡£
+// é¢è¯•é¢˜9ï¼šç”¨ä¸¤ä¸ªæ ˆå®žçŽ°é˜Ÿåˆ—
+// é¢˜ç›®ï¼šç”¨ä¸¤ä¸ªæ ˆå®žçŽ°ä¸€ä¸ªé˜Ÿåˆ—ã€‚é˜Ÿåˆ—çš„å£°æ˜Žå¦‚ä¸‹ï¼Œè¯·å®žçŽ°å®ƒçš„ä¸¤ä¸ªå‡½æ•°appendTail
+// å’ŒdeleteHeadï¼Œåˆ†åˆ«å®Œæˆåœ¨é˜Ÿåˆ—å°¾éƒ¨æ’å…¥ç»“ç‚¹å’Œåœ¨é˜Ÿåˆ—å¤´éƒ¨åˆ é™¤ç»“ç‚¹çš„åŠŸèƒ½ã€‚
 
 #pragma once
 #include <stack>
@@ -28,10 +28,10 @@ public:
     CQueue(void);
     ~CQueue(void);
     
-    // ÔÚ¶ÓÁÐÄ©Î²Ìí¼ÓÒ»¸ö½áµã
+    // åœ¨é˜Ÿåˆ—æœ«å°¾æ·»åŠ ä¸€ä¸ªç»“ç‚¹
     void appendTail(const T& node);
 
-    // É¾³ý¶ÓÁÐµÄÍ·½áµã
+    // åˆ é™¤é˜Ÿåˆ—çš„å¤´ç»“ç‚¹
     T deleteHead();
 
 private:

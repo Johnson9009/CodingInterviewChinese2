@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ8£º¶þ²æÊ÷µÄÏÂÒ»¸ö½áµã
-// ÌâÄ¿£º¸ø¶¨Ò»¿Ã¶þ²æÊ÷ºÍÆäÖÐµÄÒ»¸ö½áµã£¬ÈçºÎÕÒ³öÖÐÐò±éÀúË³ÐòµÄÏÂÒ»¸ö½áµã£¿
-// Ê÷ÖÐµÄ½áµã³ýÁËÓÐÁ½¸ö·Ö±ðÖ¸Ïò×óÓÒ×Ó½áµãµÄÖ¸ÕëÒÔÍâ£¬»¹ÓÐÒ»¸öÖ¸Ïò¸¸½áµãµÄÖ¸Õë¡£
+// é¢è¯•é¢˜8ï¼šäºŒå‰æ ‘çš„ä¸‹ä¸€ä¸ªç»“ç‚¹
+// é¢˜ç›®ï¼šç»™å®šä¸€æ£µäºŒå‰æ ‘å’Œå…¶ä¸­çš„ä¸€ä¸ªç»“ç‚¹ï¼Œå¦‚ä½•æ‰¾å‡ºä¸­åºéåŽ†é¡ºåºçš„ä¸‹ä¸€ä¸ªç»“ç‚¹ï¼Ÿ
+// æ ‘ä¸­çš„ç»“ç‚¹é™¤äº†æœ‰ä¸¤ä¸ªåˆ†åˆ«æŒ‡å‘å·¦å³å­ç»“ç‚¹çš„æŒ‡é’ˆä»¥å¤–ï¼Œè¿˜æœ‰ä¸€ä¸ªæŒ‡å‘çˆ¶ç»“ç‚¹çš„æŒ‡é’ˆã€‚
 
 #include <stdio.h>
 
@@ -56,7 +56,7 @@ BinaryTreeNode* GetNext(BinaryTreeNode* pNode)
     return pNext;
 }
 
-// ==================== ¸¨Öú´úÂëÓÃÀ´¹¹½¨¶þ²æÊ÷ ====================
+// ==================== è¾…åŠ©ä»£ç ç”¨æ¥æž„å»ºäºŒå‰æ ‘ ====================
 BinaryTreeNode* CreateBinaryTreeNode(int value)
 {
     BinaryTreeNode* pNode = new BinaryTreeNode();
@@ -135,7 +135,7 @@ void DestroyTree(BinaryTreeNode* pRoot)
     }
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(char* testName, BinaryTreeNode* pNode, BinaryTreeNode* expected)
 {
     if(testName != nullptr)

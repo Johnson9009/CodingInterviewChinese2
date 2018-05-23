@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ16£ºÊıÖµµÄÕûÊı´Î·½
-// ÌâÄ¿£ºÊµÏÖº¯Êıdouble Power(double base, int exponent)£¬ÇóbaseµÄexponent
-// ´Î·½¡£²»µÃÊ¹ÓÃ¿âº¯Êı£¬Í¬Ê±²»ĞèÒª¿¼ÂÇ´óÊıÎÊÌâ¡£
+// é¢è¯•é¢˜16ï¼šæ•°å€¼çš„æ•´æ•°æ¬¡æ–¹
+// é¢˜ç›®ï¼šå®ç°å‡½æ•°double Power(double base, int exponent)ï¼Œæ±‚baseçš„exponent
+// æ¬¡æ–¹ã€‚ä¸å¾—ä½¿ç”¨åº“å‡½æ•°ï¼ŒåŒæ—¶ä¸éœ€è¦è€ƒè™‘å¤§æ•°é—®é¢˜ã€‚
 
 #include <iostream>
 #include <cmath>
@@ -79,7 +79,7 @@ bool equal(double num1, double num2)
         return false;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, double base, int exponent, double expectedResult, bool expectedFlag)
 {
     double result = Power(base, exponent);
@@ -91,25 +91,25 @@ void Test(const char* testName, double base, int exponent, double expectedResult
 
 int main(int argc, char* argv[])
 {
-    // µ×Êı¡¢Ö¸Êı¶¼ÎªÕıÊı
+    // åº•æ•°ã€æŒ‡æ•°éƒ½ä¸ºæ­£æ•°
     Test("Test1", 2, 3, 8, false);
 
-    // µ×ÊıÎª¸ºÊı¡¢Ö¸ÊıÎªÕıÊı
+    // åº•æ•°ä¸ºè´Ÿæ•°ã€æŒ‡æ•°ä¸ºæ­£æ•°
     Test("Test2", -2, 3, -8, false);
 
-    // Ö¸ÊıÎª¸ºÊı
+    // æŒ‡æ•°ä¸ºè´Ÿæ•°
     Test("Test3", 2, -3, 0.125, false);
 
-    // Ö¸ÊıÎª0
+    // æŒ‡æ•°ä¸º0
     Test("Test4", 2, 0, 1, false);
 
-    // µ×Êı¡¢Ö¸Êı¶¼Îª0
+    // åº•æ•°ã€æŒ‡æ•°éƒ½ä¸º0
     Test("Test5", 0, 0, 1, false);
 
-    // µ×ÊıÎª0¡¢Ö¸ÊıÎªÕıÊı
+    // åº•æ•°ä¸º0ã€æŒ‡æ•°ä¸ºæ­£æ•°
     Test("Test6", 0, 4, 0, false);
 
-    // µ×ÊıÎª0¡¢Ö¸ÊıÎª¸ºÊı
+    // åº•æ•°ä¸º0ã€æŒ‡æ•°ä¸ºè´Ÿæ•°
     Test("Test7", 0, -4, 0, true);
 
     return 0;

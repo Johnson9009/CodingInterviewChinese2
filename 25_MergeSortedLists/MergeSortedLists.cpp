@@ -8,14 +8,14 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ25£ººÏ²¢Á½¸öÅÅÐòµÄÁ´±í
-// ÌâÄ¿£ºÊäÈëÁ½¸öµÝÔöÅÅÐòµÄÁ´±í£¬ºÏ²¢ÕâÁ½¸öÁ´±í²¢Ê¹ÐÂÁ´±íÖÐµÄ½áµãÈÔÈ»ÊÇ°´
-// ÕÕµÝÔöÅÅÐòµÄ¡£ÀýÈçÊäÈëÍ¼3.11ÖÐµÄÁ´±í1ºÍÁ´±í2£¬ÔòºÏ²¢Ö®ºóµÄÉýÐòÁ´±íÈçÁ´
-// ±í3ËùÊ¾¡£
+// é¢è¯•é¢˜25ï¼šåˆå¹¶ä¸¤ä¸ªæŽ’åºçš„é“¾è¡¨
+// é¢˜ç›®ï¼šè¾“å…¥ä¸¤ä¸ªé€’å¢žæŽ’åºçš„é“¾è¡¨ï¼Œåˆå¹¶è¿™ä¸¤ä¸ªé“¾è¡¨å¹¶ä½¿æ–°é“¾è¡¨ä¸­çš„ç»“ç‚¹ä»ç„¶æ˜¯æŒ‰
+// ç…§é€’å¢žæŽ’åºçš„ã€‚ä¾‹å¦‚è¾“å…¥å›¾3.11ä¸­çš„é“¾è¡¨1å’Œé“¾è¡¨2ï¼Œåˆ™åˆå¹¶ä¹‹åŽçš„å‡åºé“¾è¡¨å¦‚é“¾
+// è¡¨3æ‰€ç¤ºã€‚
 
 #include <cstdio>
 #include "../Utilities/List.h"
@@ -43,7 +43,7 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
     return pMergedHead;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 ListNode* Test(char* testName, ListNode* pHead1, ListNode* pHead2)
 {
     if(testName != nullptr)
@@ -87,7 +87,7 @@ void Test1()
     DestroyList(pMergedHead);
 }
 
-// Á½¸öÁ´±íÖÐÓÐÖØ¸´µÄÊý×Ö
+// ä¸¤ä¸ªé“¾è¡¨ä¸­æœ‰é‡å¤çš„æ•°å­—
 // list1: 1->3->5
 // list2: 1->3->5
 void Test2()
@@ -111,7 +111,7 @@ void Test2()
     DestroyList(pMergedHead);
 }
 
-// Á½¸öÁ´±í¶¼Ö»ÓÐÒ»¸öÊý×Ö
+// ä¸¤ä¸ªé“¾è¡¨éƒ½åªæœ‰ä¸€ä¸ªæ•°å­—
 // list1: 1
 // list2: 2
 void Test3()
@@ -124,9 +124,9 @@ void Test3()
     DestroyList(pMergedHead);
 }
 
-// Ò»¸öÁ´±íÎª¿ÕÁ´±í
+// ä¸€ä¸ªé“¾è¡¨ä¸ºç©ºé“¾è¡¨
 // list1: 1->3->5
-// list2: ¿ÕÁ´±í
+// list2: ç©ºé“¾è¡¨
 void Test4()
 {
     ListNode* pNode1 = CreateListNode(1);
@@ -141,9 +141,9 @@ void Test4()
     DestroyList(pMergedHead);
 }
 
-// Á½¸öÁ´±í¶¼Îª¿ÕÁ´±í
-// list1: ¿ÕÁ´±í
-// list2: ¿ÕÁ´±í
+// ä¸¤ä¸ªé“¾è¡¨éƒ½ä¸ºç©ºé“¾è¡¨
+// list1: ç©ºé“¾è¡¨
+// list2: ç©ºé“¾è¡¨
 void Test5()
 {
     ListNode* pMergedHead = Test("Test5", nullptr, nullptr);

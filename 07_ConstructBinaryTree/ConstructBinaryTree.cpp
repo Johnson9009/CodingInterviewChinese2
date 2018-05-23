@@ -8,79 +8,53 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ7£ºÖØ½¨¶ş²æÊ÷
-// ÌâÄ¿£ºÊäÈëÄ³¶ş²æÊ÷µÄÇ°Ğò±éÀúºÍÖĞĞò±éÀúµÄ½á¹û£¬ÇëÖØ½¨³ö¸Ã¶ş²æÊ÷¡£¼ÙÉèÊä
-// ÈëµÄÇ°Ğò±éÀúºÍÖĞĞò±éÀúµÄ½á¹ûÖĞ¶¼²»º¬ÖØ¸´µÄÊı×Ö¡£ÀıÈçÊäÈëÇ°Ğò±éÀúĞòÁĞ{1,
-// 2, 4, 7, 3, 5, 6, 8}ºÍÖĞĞò±éÀúĞòÁĞ{4, 7, 2, 1, 5, 3, 8, 6}£¬ÔòÖØ½¨³ö
-// Í¼2.6ËùÊ¾µÄ¶ş²æÊ÷²¢Êä³öËüµÄÍ·½áµã¡£
+// é¢è¯•é¢˜7ï¼šé‡å»ºäºŒå‰æ ‘
+// é¢˜ç›®ï¼šè¾“å…¥æŸäºŒå‰æ ‘çš„å‰åºéå†å’Œä¸­åºéå†çš„ç»“æœï¼Œè¯·é‡å»ºå‡ºè¯¥äºŒå‰æ ‘ã€‚å‡è®¾è¾“
+// å…¥çš„å‰åºéå†å’Œä¸­åºéå†çš„ç»“æœä¸­éƒ½ä¸å«é‡å¤çš„æ•°å­—ã€‚ä¾‹å¦‚è¾“å…¥å‰åºéå†åºåˆ—{1,
+// 2, 4, 7, 3, 5, 6, 8}å’Œä¸­åºéå†åºåˆ—{4, 7, 2, 1, 5, 3, 8, 6}ï¼Œåˆ™é‡å»ºå‡º
+// å›¾2.6æ‰€ç¤ºçš„äºŒå‰æ ‘å¹¶è¾“å‡ºå®ƒçš„å¤´ç»“ç‚¹ã€‚
 
 #include "../Utilities/BinaryTree.h"
 #include <exception>
+#include <stdexcept>
 #include <cstdio>
 
-BinaryTreeNode* ConstructCore(int* startPreorder, int* endPreorder, int* startInorder, int* endInorder);
+BinaryTreeNode* ConstructCore(int const* preorder, int pre_1st_idx, int pre_last_idx,
+                              int const* inorder, int in_1st_idx, int in_last_idx) {
+  int pre_length = pre_last_idx - pre_1st_idx + 1;
+  int in_length = in_last_idx - in_1st_idx + 1;
+  if (pre_length != in_length) throw std::invalid_argument("");
+  if (pre_length == 0) return nullptr;
 
-BinaryTreeNode* Construct(int* preorder, int* inorder, int length)
-{
-    if(preorder == nullptr || inorder == nullptr || length <= 0)
-        return nullptr;
+  BinaryTreeNode* root = new BinaryTreeNode();
+  root->m_nValue = preorder[pre_1st_idx];
+  int i = 0;
+  for(i= in_1st_idx; i <= in_last_idx; ++i) {
+    if (inorder[i] == root->m_nValue) break;
+  }
 
-    return ConstructCore(preorder, preorder + length - 1,
-        inorder, inorder + length - 1);
+  if (i > in_last_idx) throw std::invalid_argument("");
+
+  root->m_pLeft = ConstructCore(preorder, (pre_1st_idx + 1), (pre_1st_idx + i - in_1st_idx),
+                                inorder, in_1st_idx, (i - 1));
+  root->m_pRight = ConstructCore(preorder, (pre_1st_idx + i - in_1st_idx + 1), pre_last_idx,
+                                 inorder, (i + 1), in_last_idx);
+  return root;
+
 }
 
-BinaryTreeNode* ConstructCore
-(
-    int* startPreorder, int* endPreorder, 
-    int* startInorder, int* endInorder
-)
-{
-    // Ç°Ğò±éÀúĞòÁĞµÄµÚÒ»¸öÊı×ÖÊÇ¸ù½áµãµÄÖµ
-    int rootValue = startPreorder[0];
-    BinaryTreeNode* root = new BinaryTreeNode();
-    root->m_nValue = rootValue;
-    root->m_pLeft = root->m_pRight = nullptr;
-
-    if(startPreorder == endPreorder)
-    {
-        if(startInorder == endInorder && *startPreorder == *startInorder)
-            return root;
-        else
-            throw "Invalid input.";
-    }
-
-    // ÔÚÖĞĞò±éÀúÖĞÕÒµ½¸ù½áµãµÄÖµ
-    int* rootInorder = startInorder;
-    while(rootInorder <= endInorder && *rootInorder != rootValue)
-        ++ rootInorder;
-
-    if(rootInorder == endInorder && *rootInorder != rootValue)
-        throw "Invalid input.";
-
-    int leftLength = rootInorder - startInorder;
-    int* leftPreorderEnd = startPreorder + leftLength;
-    if(leftLength > 0)
-    {
-        // ¹¹½¨×ó×ÓÊ÷
-        root->m_pLeft = ConstructCore(startPreorder + 1, leftPreorderEnd, 
-            startInorder, rootInorder - 1);
-    }
-    if(leftLength < endPreorder - startPreorder)
-    {
-        // ¹¹½¨ÓÒ×ÓÊ÷
-        root->m_pRight = ConstructCore(leftPreorderEnd + 1, endPreorder,
-            rootInorder + 1, endInorder);
-    }
-
-    return root;
+BinaryTreeNode* Construct(int* preorder, int* inorder, int length) {
+  if ((preorder == nullptr) || (inorder == nullptr) || (length < 1))
+    throw std::invalid_argument("");
+  return ConstructCore(preorder, 0, (length - 1), inorder, 0, (length - 1));
 }
 
-// ====================²âÊÔ´úÂë====================
-void Test(char* testName, int* preorder, int* inorder, int length)
+// ====================æµ‹è¯•ä»£ç ====================
+void Test(char const* testName, int* preorder, int* inorder, int length)
 {
     if(testName != nullptr)
         printf("%s begins:\n", testName);
@@ -108,7 +82,7 @@ void Test(char* testName, int* preorder, int* inorder, int length)
     }
 }
 
-// ÆÕÍ¨¶ş²æÊ÷
+// æ™®é€šäºŒå‰æ ‘
 //              1
 //           /     \
 //          2       3  
@@ -125,7 +99,7 @@ void Test1()
     Test("Test1", preorder, inorder, length);
 }
 
-// ËùÓĞ½áµã¶¼Ã»ÓĞÓÒ×Ó½áµã
+// æ‰€æœ‰ç»“ç‚¹éƒ½æ²¡æœ‰å³å­ç»“ç‚¹
 //            1
 //           / 
 //          2   
@@ -144,7 +118,7 @@ void Test2()
     Test("Test2", preorder, inorder, length);
 }
 
-// ËùÓĞ½áµã¶¼Ã»ÓĞ×ó×Ó½áµã
+// æ‰€æœ‰ç»“ç‚¹éƒ½æ²¡æœ‰å·¦å­ç»“ç‚¹
 //            1
 //             \ 
 //              2   
@@ -163,7 +137,7 @@ void Test3()
     Test("Test3", preorder, inorder, length);
 }
 
-// Ê÷ÖĞÖ»ÓĞÒ»¸ö½áµã
+// æ ‘ä¸­åªæœ‰ä¸€ä¸ªç»“ç‚¹
 void Test4()
 {
     const int length = 1;
@@ -173,7 +147,7 @@ void Test4()
     Test("Test4", preorder, inorder, length);
 }
 
-// ÍêÈ«¶ş²æÊ÷
+// å®Œå…¨äºŒå‰æ ‘
 //              1
 //           /     \
 //          2       3  
@@ -188,13 +162,13 @@ void Test5()
     Test("Test5", preorder, inorder, length);
 }
 
-// ÊäÈë¿ÕÖ¸Õë
+// è¾“å…¥ç©ºæŒ‡é’ˆ
 void Test6()
 {
     Test("Test6", nullptr, nullptr, 0);
 }
 
-// ÊäÈëµÄÁ½¸öĞòÁĞ²»Æ¥Åä
+// è¾“å…¥çš„ä¸¤ä¸ªåºåˆ—ä¸åŒ¹é…
 void Test7()
 {
     const int length = 7;

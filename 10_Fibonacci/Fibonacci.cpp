@@ -16,38 +16,25 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 题目：写一个函数，输入n，求斐波那契（Fibonacci）数列的第n项。
 
 #include <cstdio>
+#include <cstdint>
 
 // ====================方法1：递归====================
-long long Fibonacci_Solution1(unsigned int n)
-{
-    if(n <= 0)
-        return 0;
-
-    if(n == 1)
-        return 1;
-
-    return Fibonacci_Solution1(n - 1) + Fibonacci_Solution1(n - 2);
+uint64_t FibonacciRecursively(uint32_t n) {
+  if (n < 2) return n;
+  return (FibonacciRecursively(n - 1) + FibonacciRecursively(n - 2));
 }
 
 // ====================方法2：循环====================
-long long Fibonacci_Solution2(unsigned n)
-{
-    int result[2] = {0, 1};
-    if(n < 2)
-        return result[n];
-
-    long long  fibNMinusOne = 1;
-    long long  fibNMinusTwo = 0;
-    long long  fibN = 0;
-    for(unsigned int i = 2; i <= n; ++ i)
-    {
-        fibN = fibNMinusOne + fibNMinusTwo;
-
-        fibNMinusTwo = fibNMinusOne;
-        fibNMinusOne = fibN;
-    }
-
-     return fibN;
+uint64_t FibonacciIteratively(uint32_t n) {
+  if (n < 2) return n;
+  uint64_t fn_minus_2 = 0;
+  uint64_t fn_minus_1 = 1;
+  for (uint32_t i = 2; i <= n; ++i) {
+    uint64_t fn = fn_minus_1 + fn_minus_2;
+    fn_minus_2 = fn_minus_1;
+    fn_minus_1 = fn;
+  }
+  return fn_minus_1;
 }
 
 // ====================方法3：基于矩阵乘法====================
@@ -122,12 +109,12 @@ long long Fibonacci_Solution3(unsigned int n)
 // ====================测试代码====================
 void Test(int n, int expected)
 {
-    if(Fibonacci_Solution1(n) == expected)
+    if(FibonacciRecursively(n) == expected)
         printf("Test for %d in solution1 passed.\n", n);
     else
         printf("Test for %d in solution1 failed.\n", n);
 
-    if(Fibonacci_Solution2(n) == expected)
+    if(FibonacciIteratively(n) == expected)
         printf("Test for %d in solution2 passed.\n", n);
     else
         printf("Test for %d in solution2 failed.\n", n);

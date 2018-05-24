@@ -23,26 +23,26 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <stdexcept>
 #include <cstdio>
 
-BinaryTreeNode* ConstructCore(int const* preorder, int pre_1st_idx, int pre_last_idx,
-                              int const* inorder, int in_1st_idx, int in_last_idx) {
-  int pre_length = pre_last_idx - pre_1st_idx + 1;
-  int in_length = in_last_idx - in_1st_idx + 1;
+BinaryTreeNode* ConstructCore(int const* preorder_1st, int const* preorder_last,
+                              int const* inorder_1st, int const* inorder_last) {
+  int pre_length = preorder_last - preorder_1st + 1;
+  int in_length = inorder_last - inorder_1st + 1;
   if (pre_length != in_length) throw std::invalid_argument("");
   if (pre_length == 0) return nullptr;
 
   BinaryTreeNode* root = new BinaryTreeNode();
-  root->m_nValue = preorder[pre_1st_idx];
-  int i = 0;
-  for(i= in_1st_idx; i <= in_last_idx; ++i) {
-    if (inorder[i] == root->m_nValue) break;
+  root->m_nValue = *preorder_1st;
+  int const* cur_inorder = inorder_1st;
+  for(; cur_inorder <= inorder_last; ++cur_inorder) {
+    if (*cur_inorder == root->m_nValue) break;
   }
 
-  if (i > in_last_idx) throw std::invalid_argument("");
+  if (cur_inorder > inorder_last) throw std::invalid_argument("");
 
-  root->m_pLeft = ConstructCore(preorder, (pre_1st_idx + 1), (pre_1st_idx + i - in_1st_idx),
-                                inorder, in_1st_idx, (i - 1));
-  root->m_pRight = ConstructCore(preorder, (pre_1st_idx + i - in_1st_idx + 1), pre_last_idx,
-                                 inorder, (i + 1), in_last_idx);
+  root->m_pLeft = ConstructCore((preorder_1st + 1), (preorder_1st + (cur_inorder - inorder_1st)),
+                                inorder_1st, (cur_inorder - 1));
+  root->m_pRight = ConstructCore((preorder_1st + (cur_inorder - inorder_1st + 1)), preorder_last,
+                                 (cur_inorder + 1), inorder_last);
   return root;
 
 }
@@ -50,7 +50,7 @@ BinaryTreeNode* ConstructCore(int const* preorder, int pre_1st_idx, int pre_last
 BinaryTreeNode* Construct(int* preorder, int* inorder, int length) {
   if ((preorder == nullptr) || (inorder == nullptr) || (length < 1))
     throw std::invalid_argument("");
-  return ConstructCore(preorder, 0, (length - 1), inorder, 0, (length - 1));
+  return ConstructCore(preorder, (preorder + length - 1), inorder, (inorder + length - 1));
 }
 
 // ====================测试代码====================
@@ -120,9 +120,9 @@ void Test2()
 
 // 所有结点都没有左子结点
 //            1
-//             \ 
+//             \
 //              2   
-//               \ 
+//               \
 //                3 
 //                 \
 //                  4

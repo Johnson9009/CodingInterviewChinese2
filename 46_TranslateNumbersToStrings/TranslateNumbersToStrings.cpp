@@ -8,15 +8,15 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ46£º°ÑÊý×Ö·­Òë³É×Ö·û´®
-// ÌâÄ¿£º¸ø¶¨Ò»¸öÊý×Ö£¬ÎÒÃÇ°´ÕÕÈçÏÂ¹æÔò°ÑËü·­ÒëÎª×Ö·û´®£º0·­Òë³É"a"£¬1·­
-// Òë³É"b"£¬¡­¡­£¬11·­Òë³É"l"£¬¡­¡­£¬25·­Òë³É"z"¡£Ò»¸öÊý×Ö¿ÉÄÜÓÐ¶à¸ö·­Òë¡£Àý
-// Èç12258ÓÐ5ÖÖ²»Í¬µÄ·­Òë£¬ËüÃÇ·Ö±ðÊÇ"bccfi"¡¢"bwfi"¡¢"bczi"¡¢"mcfi"ºÍ
-// "mzi"¡£Çë±à³ÌÊµÏÖÒ»¸öº¯ÊýÓÃÀ´¼ÆËãÒ»¸öÊý×ÖÓÐ¶àÉÙÖÖ²»Í¬µÄ·­Òë·½·¨¡£
+// é¢è¯•é¢˜46ï¼šæŠŠæ•°å­—ç¿»è¯‘æˆå­—ç¬¦ä¸²
+// é¢˜ç›®ï¼šç»™å®šä¸€ä¸ªæ•°å­—ï¼Œæˆ‘ä»¬æŒ‰ç…§å¦‚ä¸‹è§„åˆ™æŠŠå®ƒç¿»è¯‘ä¸ºå­—ç¬¦ä¸²ï¼š0ç¿»è¯‘æˆ"a"ï¼Œ1ç¿»
+// è¯‘æˆ"b"ï¼Œâ€¦â€¦ï¼Œ11ç¿»è¯‘æˆ"l"ï¼Œâ€¦â€¦ï¼Œ25ç¿»è¯‘æˆ"z"ã€‚ä¸€ä¸ªæ•°å­—å¯èƒ½æœ‰å¤šä¸ªç¿»è¯‘ã€‚ä¾‹
+// å¦‚12258æœ‰5ç§ä¸åŒçš„ç¿»è¯‘ï¼Œå®ƒä»¬åˆ†åˆ«æ˜¯"bccfi"ã€"bwfi"ã€"bczi"ã€"mcfi"å’Œ
+// "mzi"ã€‚è¯·ç¼–ç¨‹å®žçŽ°ä¸€ä¸ªå‡½æ•°ç”¨æ¥è®¡ç®—ä¸€ä¸ªæ•°å­—æœ‰å¤šå°‘ç§ä¸åŒçš„ç¿»è¯‘æ–¹æ³•ã€‚
 
 #include <string>
 #include <iostream>
@@ -71,7 +71,7 @@ int GetTranslationCount(const string& number)
     return count;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const string& testName, int number, int expected)
 {
     if(GetTranslationCount(number) == expected)

@@ -8,15 +8,15 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ����ָOffer�����������Թپ������ͱ���⡷����
-// ���ߣ��κ���
+// 《剑指Offer――名企面试官精讲典型编程题》代码
+// 作者：何海涛
 //==================================================================
 
-// ������31��ջ��ѹ�롢��������
-// ��Ŀ�����������������У���һ�����б�ʾջ��ѹ��˳�����жϵڶ���������
-// ��Ϊ��ջ�ĵ���˳�򡣼���ѹ��ջ���������־�����ȡ���������1��2��3��4��
-// 5��ĳջ��ѹջ���У�����4��5��3��2��1�Ǹ�ѹջ���ж�Ӧ��һ���������У���
-// 4��3��5��1��2�Ͳ������Ǹ�ѹջ���еĵ������С�
+// 面试题31：栈的压入、弹出序列
+// 题目：输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是
+// 否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1、2、3、4、
+// 5是某栈的压栈序列，序列4、5、3、2、1是该压栈序列对应的一个弹出序列，但
+// 4、3、5、1、2就不可能是该压栈序列的弹出序列。
 
 #include <cstdio>
 #include <stack>
@@ -34,11 +34,11 @@ bool IsPopOrder(const int* pPush, const int* pPop, int nLength)
 
         while(pNextPop - pPop < nLength)
         {
-            // ������ջ��ջ��Ԫ�ز���Ҫ������Ԫ��
-            // ��ѹ��һЩ������ջ
+            // 当辅助栈的栈顶元素不是要弹出的元素
+            // 先压入一些数字入栈
             while(stackData.empty() || stackData.top() != *pNextPop)
             {
-                // ����������ֶ�ѹ�븨��ջ�ˣ��˳�ѭ��
+                // 如果所有数字都压入辅助栈了，退出循环
                 if(pNextPush - pPush == nLength)
                     break;
 
@@ -61,7 +61,7 @@ bool IsPopOrder(const int* pPush, const int* pPop, int nLength)
     return bPossible;
 }
 
-// ====================���Դ���====================
+// ====================测试代码====================
 void Test(const char* testName, const int* pPush, const int* pPop, int nLength, bool expected)
 {
     if(testName != nullptr)
@@ -109,7 +109,7 @@ void Test4()
     Test("Test4", push, pop, nLength, false);
 }
 
-// push��pop����ֻ��һ������
+// push和pop序列只有一个数字
 void Test5()
 {
     const int nLength = 1;

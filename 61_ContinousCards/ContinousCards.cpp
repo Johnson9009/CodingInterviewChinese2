@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ61£ºÆË¿ËÅÆµÄË³×Ó
-// ÌâÄ¿£º´ÓÆË¿ËÅÆÖÐËæ»ú³é5ÕÅÅÆ£¬ÅÐ¶ÏÊÇ²»ÊÇÒ»¸öË³×Ó£¬¼´Õâ5ÕÅÅÆÊÇ²»ÊÇÁ¬ÐøµÄ¡£
-// 2¡«10ÎªÊý×Ö±¾Éí£¬AÎª1£¬JÎª11£¬QÎª12£¬KÎª13£¬¶ø´ó¡¢Ð¡Íõ¿ÉÒÔ¿´³ÉÈÎÒâÊý×Ö¡£
+// é¢è¯•é¢˜61ï¼šæ‰‘å…‹ç‰Œçš„é¡ºå­
+// é¢˜ç›®ï¼šä»Žæ‰‘å…‹ç‰Œä¸­éšæœºæŠ½5å¼ ç‰Œï¼Œåˆ¤æ–­æ˜¯ä¸æ˜¯ä¸€ä¸ªé¡ºå­ï¼Œå³è¿™5å¼ ç‰Œæ˜¯ä¸æ˜¯è¿žç»­çš„ã€‚
+// 2ï½ž10ä¸ºæ•°å­—æœ¬èº«ï¼ŒAä¸º1ï¼ŒJä¸º11ï¼ŒQä¸º12ï¼ŒKä¸º13ï¼Œè€Œå¤§ã€å°çŽ‹å¯ä»¥çœ‹æˆä»»æ„æ•°å­—ã€‚
 
 #include <cstdio>
 #include <cstdlib>
@@ -31,16 +31,16 @@ bool IsContinuous(int* numbers, int length)
     int numberOfZero = 0;
     int numberOfGap = 0;
 
-    // Í³¼ÆÊý×éÖÐ0µÄ¸öÊý
+    // ç»Ÿè®¡æ•°ç»„ä¸­0çš„ä¸ªæ•°
     for(int i = 0; i < length && numbers[i] == 0; ++i)
         ++numberOfZero;
 
-    // Í³¼ÆÊý×éÖÐµÄ¼ä¸ôÊýÄ¿
+    // ç»Ÿè®¡æ•°ç»„ä¸­çš„é—´éš”æ•°ç›®
     int small = numberOfZero;
     int big = small + 1;
     while(big < length)
     {
-        // Á½¸öÊýÏàµÈ£¬ÓÐ¶Ô×Ó£¬²»¿ÉÄÜÊÇË³×Ó
+        // ä¸¤ä¸ªæ•°ç›¸ç­‰ï¼Œæœ‰å¯¹å­ï¼Œä¸å¯èƒ½æ˜¯é¡ºå­
         if(numbers[small] == numbers[big])
             return false;
 
@@ -57,7 +57,7 @@ int Compare(const void *arg1, const void *arg2)
     return *(int*) arg1 - *(int*) arg2;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, int* numbers, int length, bool expected)
 {
     if(testName != nullptr)
@@ -129,14 +129,14 @@ void Test10()
     Test("Test10", numbers, sizeof(numbers) / sizeof(int), true);
 }
 
-// ÓÐ¶Ô×Ó
+// æœ‰å¯¹å­
 void Test11()
 {
     int numbers[] = { 1, 0, 0, 1, 0 };
     Test("Test11", numbers, sizeof(numbers) / sizeof(int), false);
 }
 
-// Â³°ôÐÔ²âÊÔ
+// é²æ£’æ€§æµ‹è¯•
 void Test12()
 {
     Test("Test12", nullptr, 0, false);

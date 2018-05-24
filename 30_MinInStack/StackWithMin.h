@@ -1,11 +1,11 @@
 //==================================================================
-// ����ָOffer�����������Թپ������ͱ���⡷����
-// ���ߣ��κ���
+// 《剑指Offer――名企面试官精讲典型编程题》代码
+// 作者：何海涛
 //==================================================================
 
-// ������30������min������ջ
-// ��Ŀ������ջ�����ݽṹ�����ڸ�������ʵ��һ���ܹ��õ�ջ����СԪ�ص�min
-// �������ڸ�ջ�У�����min��push��pop��ʱ�临�Ӷȶ���O(1)��
+// 面试题30：包含min函数的栈
+// 题目：定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min
+// 函数。在该栈中，调用min、push及pop的时间复杂度都是O(1)。
 
 #pragma once
 
@@ -30,17 +30,17 @@ public:
     size_t size() const;
 
 private:
-    std::stack<T>   m_data;     // ����ջ�����ջ������Ԫ��
-    std::stack<T>   m_min;      // ����ջ�����ջ����СԪ��
+    std::stack<T>   m_data;     // 数据栈，存放栈的所有元素
+    std::stack<T>   m_min;      // 辅助栈，存放栈的最小元素
 };
 
 template <typename T> void StackWithMin<T>::push(const T& value)
 {
-    // ����Ԫ�����ӵ�����ջ
+    // 把新元素添加到辅助栈
     m_data.push(value);
 
-    // ����Ԫ�ر�֮ǰ����СԪ��Сʱ������Ԫ�ز��븨��ջ�
-    // �����֮ǰ����СԪ���ظ����븨��ջ��
+    // 当新元素比之前的最小元素小时，把新元素插入辅助栈里；
+    // 否则把之前的最小元素重复插入辅助栈里
     if(m_min.size() == 0 || value < m_min.top())
         m_min.push(value);
     else

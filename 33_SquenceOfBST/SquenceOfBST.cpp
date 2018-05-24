@@ -8,17 +8,17 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ33£º¶þ²æËÑË÷Ê÷µÄºóÐò±éÀúÐòÁÐ
-// ÌâÄ¿£ºÊäÈëÒ»¸öÕûÊýÊý×é£¬ÅÐ¶Ï¸ÃÊý×éÊÇ²»ÊÇÄ³¶þ²æËÑË÷Ê÷µÄºóÐò±éÀúµÄ½á¹û¡£
-// Èç¹ûÊÇÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse¡£¼ÙÉèÊäÈëµÄÊý×éµÄÈÎÒâÁ½¸öÊý×Ö¶¼»¥²»ÏàÍ¬¡£
+// é¢è¯•é¢˜33ï¼šäºŒå‰æœç´¢æ ‘çš„åŽåºéåŽ†åºåˆ—
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€ä¸ªæ•´æ•°æ•°ç»„ï¼Œåˆ¤æ–­è¯¥æ•°ç»„æ˜¯ä¸æ˜¯æŸäºŒå‰æœç´¢æ ‘çš„åŽåºéåŽ†çš„ç»“æžœã€‚
+// å¦‚æžœæ˜¯åˆ™è¿”å›žtrueï¼Œå¦åˆ™è¿”å›žfalseã€‚å‡è®¾è¾“å…¥çš„æ•°ç»„çš„ä»»æ„ä¸¤ä¸ªæ•°å­—éƒ½äº’ä¸ç›¸åŒã€‚
 
 #include <cstdio>
 
-// BST£ºBinary Search Tree£¬¶þ²æËÑË÷Ê÷
+// BSTï¼šBinary Search Treeï¼ŒäºŒå‰æœç´¢æ ‘
 bool VerifySquenceOfBST(int sequence[], int length)
 {
     if(sequence == nullptr || length <= 0)
@@ -26,7 +26,7 @@ bool VerifySquenceOfBST(int sequence[], int length)
 
     int root = sequence[length - 1];
 
-    // ÔÚ¶þ²æËÑË÷Ê÷ÖÐ×ó×ÓÊ÷µÄ½áµãÐ¡ÓÚ¸ù½áµã
+    // åœ¨äºŒå‰æœç´¢æ ‘ä¸­å·¦å­æ ‘çš„ç»“ç‚¹å°äºŽæ ¹ç»“ç‚¹
     int i = 0;
     for(; i < length - 1; ++ i)
     {
@@ -34,7 +34,7 @@ bool VerifySquenceOfBST(int sequence[], int length)
             break;
     }
 
-    // ÔÚ¶þ²æËÑË÷Ê÷ÖÐÓÒ×ÓÊ÷µÄ½áµã´óÓÚ¸ù½áµã
+    // åœ¨äºŒå‰æœç´¢æ ‘ä¸­å³å­æ ‘çš„ç»“ç‚¹å¤§äºŽæ ¹ç»“ç‚¹
     int j = i;
     for(; j < length - 1; ++ j)
     {
@@ -42,12 +42,12 @@ bool VerifySquenceOfBST(int sequence[], int length)
             return false;
     }
 
-    // ÅÐ¶Ï×ó×ÓÊ÷ÊÇ²»ÊÇ¶þ²æËÑË÷Ê÷
+    // åˆ¤æ–­å·¦å­æ ‘æ˜¯ä¸æ˜¯äºŒå‰æœç´¢æ ‘
     bool left = true;
     if(i > 0)
         left = VerifySquenceOfBST(sequence, i);
 
-    // ÅÐ¶ÏÓÒ×ÓÊ÷ÊÇ²»ÊÇ¶þ²æËÑË÷Ê÷
+    // åˆ¤æ–­å³å­æ ‘æ˜¯ä¸æ˜¯äºŒå‰æœç´¢æ ‘
     bool right = true;
     if(i < length - 1)
         right = VerifySquenceOfBST(sequence + i, length - i - 1);
@@ -55,7 +55,7 @@ bool VerifySquenceOfBST(int sequence[], int length)
     return (left && right);
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, int sequence[], int length, bool expected)
 {
     if(testName != nullptr)
@@ -119,7 +119,7 @@ void Test4()
     Test("Test4", data, sizeof(data)/sizeof(int), true);
 }
 
-// Ê÷ÖÐÖ»ÓÐ1¸ö½áµã
+// æ ‘ä¸­åªæœ‰1ä¸ªç»“ç‚¹
 void Test5()
 {
     int data[] = {5};

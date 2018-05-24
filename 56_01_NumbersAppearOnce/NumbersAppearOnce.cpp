@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ56£¨Ò»£©£ºÊý×éÖÐÖ»³öÏÖÒ»´ÎµÄÁ½¸öÊý×Ö
-// ÌâÄ¿£ºÒ»¸öÕûÐÍÊý×éÀï³ýÁËÁ½¸öÊý×ÖÖ®Íâ£¬ÆäËûµÄÊý×Ö¶¼³öÏÖÁËÁ½´Î¡£ÇëÐ´³ÌÐò
-// ÕÒ³öÕâÁ½¸öÖ»³öÏÖÒ»´ÎµÄÊý×Ö¡£ÒªÇóÊ±¼ä¸´ÔÓ¶ÈÊÇO(n)£¬¿Õ¼ä¸´ÔÓ¶ÈÊÇO(1)¡£
+// é¢è¯•é¢˜56ï¼ˆä¸€ï¼‰ï¼šæ•°ç»„ä¸­åªå‡ºçŽ°ä¸€æ¬¡çš„ä¸¤ä¸ªæ•°å­—
+// é¢˜ç›®ï¼šä¸€ä¸ªæ•´åž‹æ•°ç»„é‡Œé™¤äº†ä¸¤ä¸ªæ•°å­—ä¹‹å¤–ï¼Œå…¶ä»–çš„æ•°å­—éƒ½å‡ºçŽ°äº†ä¸¤æ¬¡ã€‚è¯·å†™ç¨‹åº
+// æ‰¾å‡ºè¿™ä¸¤ä¸ªåªå‡ºçŽ°ä¸€æ¬¡çš„æ•°å­—ã€‚è¦æ±‚æ—¶é—´å¤æ‚åº¦æ˜¯O(n)ï¼Œç©ºé—´å¤æ‚åº¦æ˜¯O(1)ã€‚
 
 #include <cstdio>
 
@@ -42,7 +42,7 @@ void FindNumsAppearOnce(int data[], int length, int* num1, int* num2)
     }
 }
 
-// ÕÒµ½num´ÓÓÒ±ßÊýÆðµÚÒ»¸öÊÇ1µÄÎ»
+// æ‰¾åˆ°numä»Žå³è¾¹æ•°èµ·ç¬¬ä¸€ä¸ªæ˜¯1çš„ä½
 unsigned int FindFirstBitIs1(int num)
 {
     int indexBit = 0;
@@ -55,14 +55,14 @@ unsigned int FindFirstBitIs1(int num)
     return indexBit;
 }
 
-// ÅÐ¶ÏÊý×ÖnumµÄµÚindexBitÎ»ÊÇ²»ÊÇ1
+// åˆ¤æ–­æ•°å­—numçš„ç¬¬indexBitä½æ˜¯ä¸æ˜¯1
 bool IsBit1(int num, unsigned int indexBit)
 {
     num = num >> indexBit;
     return (num & 1);
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, int data[], int length, int expected1, int expected2)
 {
     if(testName != nullptr)

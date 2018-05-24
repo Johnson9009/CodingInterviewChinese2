@@ -8,14 +8,14 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ58£¨¶ş£©£º×óĞı×ª×Ö·û´®
-// ÌâÄ¿£º×Ö·û´®µÄ×óĞı×ª²Ù×÷ÊÇ°Ñ×Ö·û´®Ç°ÃæµÄÈô¸É¸ö×Ö·û×ªÒÆµ½×Ö·û´®µÄÎ²²¿¡£
-// Çë¶¨ÒåÒ»¸öº¯ÊıÊµÏÖ×Ö·û´®×óĞı×ª²Ù×÷µÄ¹¦ÄÜ¡£±ÈÈçÊäÈë×Ö·û´®"abcdefg"ºÍÊı
-// ×Ö2£¬¸Ãº¯Êı½«·µ»Ø×óĞı×ª2Î»µÃµ½µÄ½á¹û"cdefgab"¡£
+// é¢è¯•é¢˜58ï¼ˆäºŒï¼‰ï¼šå·¦æ—‹è½¬å­—ç¬¦ä¸²
+// é¢˜ç›®ï¼šå­—ç¬¦ä¸²çš„å·¦æ—‹è½¬æ“ä½œæ˜¯æŠŠå­—ç¬¦ä¸²å‰é¢çš„è‹¥å¹²ä¸ªå­—ç¬¦è½¬ç§»åˆ°å­—ç¬¦ä¸²çš„å°¾éƒ¨ã€‚
+// è¯·å®šä¹‰ä¸€ä¸ªå‡½æ•°å®ç°å­—ç¬¦ä¸²å·¦æ—‹è½¬æ“ä½œçš„åŠŸèƒ½ã€‚æ¯”å¦‚è¾“å…¥å­—ç¬¦ä¸²"abcdefg"å’Œæ•°
+// å­—2ï¼Œè¯¥å‡½æ•°å°†è¿”å›å·¦æ—‹è½¬2ä½å¾—åˆ°çš„ç»“æœ"cdefgab"ã€‚
 
 #include <cstdio>
 #include "../Utilities/StringUtil.h"
@@ -33,11 +33,11 @@ char* LeftRotateString(char* pStr, int n)
             char* pSecondStart = pStr + n;
             char* pSecondEnd = pStr + nLength - 1;
 
-            // ·­×ª×Ö·û´®µÄÇ°Ãæn¸ö×Ö·û
+            // ç¿»è½¬å­—ç¬¦ä¸²çš„å‰é¢nä¸ªå­—ç¬¦
             Reverse(pFirstStart, pFirstEnd);
-            // ·­×ª×Ö·û´®µÄºóÃæ²¿·Ö
+            // ç¿»è½¬å­—ç¬¦ä¸²çš„åé¢éƒ¨åˆ†
             Reverse(pSecondStart, pSecondEnd);
-            // ·­×ªÕû¸ö×Ö·û´®
+            // ç¿»è½¬æ•´ä¸ªå­—ç¬¦ä¸²
             Reverse(pFirstStart, pSecondEnd);
         }
     }
@@ -45,7 +45,7 @@ char* LeftRotateString(char* pStr, int n)
     return pStr;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, char* input, int num, const char* expectedResult)
 {
     if(testName != nullptr)
@@ -60,7 +60,7 @@ void Test(const char* testName, char* input, int num, const char* expectedResult
         printf("Failed.\n\n");
 }
 
-// ¹¦ÄÜ²âÊÔ
+// åŠŸèƒ½æµ‹è¯•
 void Test1()
 {
     char input[] = "abcdefg";
@@ -69,7 +69,7 @@ void Test1()
     Test("Test1", input, 2, expected);
 }
 
-// ±ß½çÖµ²âÊÔ
+// è¾¹ç•Œå€¼æµ‹è¯•
 void Test2()
 {
     char input[] = "abcdefg";
@@ -78,7 +78,7 @@ void Test2()
     Test("Test2", input, 1, expected);
 }
 
-// ±ß½çÖµ²âÊÔ
+// è¾¹ç•Œå€¼æµ‹è¯•
 void Test3()
 {
     char input[] = "abcdefg";
@@ -87,13 +87,13 @@ void Test3()
     Test("Test3", input, 6, expected);
 }
 
-// Â³°ôĞÔ²âÊÔ
+// é²æ£’æ€§æµ‹è¯•
 void Test4()
 {
     Test("Test4", nullptr, 6, nullptr);
 }
 
-// Â³°ôĞÔ²âÊÔ
+// é²æ£’æ€§æµ‹è¯•
 void Test5()
 {
     char input[] = "abcdefg";
@@ -102,7 +102,7 @@ void Test5()
     Test("Test5", input, 0, expected);
 }
 
-// Â³°ôĞÔ²âÊÔ
+// é²æ£’æ€§æµ‹è¯•
 void Test6()
 {
     char input[] = "abcdefg";

@@ -8,19 +8,19 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ43£º´Ó1µ½nÕûÊıÖĞ1³öÏÖµÄ´ÎÊı
-// ÌâÄ¿£ºÊäÈëÒ»¸öÕûÊın£¬Çó´Ó1µ½nÕân¸öÕûÊıµÄÊ®½øÖÆ±íÊ¾ÖĞ1³öÏÖµÄ´ÎÊı¡£ÀıÈç
-// ÊäÈë12£¬´Ó1µ½12ÕâĞ©ÕûÊıÖĞ°üº¬1 µÄÊı×ÖÓĞ1£¬10£¬11ºÍ12£¬1Ò»¹²³öÏÖÁË5´Î¡£
+// é¢è¯•é¢˜43ï¼šä»1åˆ°næ•´æ•°ä¸­1å‡ºç°çš„æ¬¡æ•°
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€ä¸ªæ•´æ•°nï¼Œæ±‚ä»1åˆ°nè¿™nä¸ªæ•´æ•°çš„åè¿›åˆ¶è¡¨ç¤ºä¸­1å‡ºç°çš„æ¬¡æ•°ã€‚ä¾‹å¦‚
+// è¾“å…¥12ï¼Œä»1åˆ°12è¿™äº›æ•´æ•°ä¸­åŒ…å«1 çš„æ•°å­—æœ‰1ï¼Œ10ï¼Œ11å’Œ12ï¼Œ1ä¸€å…±å‡ºç°äº†5æ¬¡ã€‚
 
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
 
-// ====================·½·¨Ò»====================
+// ====================æ–¹æ³•ä¸€====================
 int NumberOf1(unsigned int n);
 
 int NumberOf1Between1AndN_Solution1(unsigned int n)
@@ -47,7 +47,7 @@ int NumberOf1(unsigned int n)
     return number;
 }
 
-// ====================·½·¨¶ş====================
+// ====================æ–¹æ³•äºŒ====================
 int NumberOf1(const char* strN);
 int PowerBase10(unsigned int n);
 
@@ -76,17 +76,17 @@ int NumberOf1(const char* strN)
     if(length == 1 && first > 0)
         return 1;
 
-    // ¼ÙÉèstrNÊÇ"21345"
-    // numFirstDigitÊÇÊı×Ö10000-19999µÄµÚÒ»¸öÎ»ÖĞ1µÄÊıÄ¿
+    // å‡è®¾strNæ˜¯"21345"
+    // numFirstDigitæ˜¯æ•°å­—10000-19999çš„ç¬¬ä¸€ä¸ªä½ä¸­1çš„æ•°ç›®
     int numFirstDigit = 0;
     if(first > 1)
         numFirstDigit = PowerBase10(length - 1);
     else if(first == 1)
         numFirstDigit = atoi(strN + 1) + 1;
 
-    // numOtherDigitsÊÇ01346-21345³ıÁËµÚÒ»Î»Ö®ÍâµÄÊıÎ»ÖĞ1µÄÊıÄ¿
+    // numOtherDigitsæ˜¯01346-21345é™¤äº†ç¬¬ä¸€ä½ä¹‹å¤–çš„æ•°ä½ä¸­1çš„æ•°ç›®
     int numOtherDigits = first * (length - 1) * PowerBase10(length - 2);
-    // numRecursiveÊÇ1-1345ÖĞ1µÄÊıÄ¿
+    // numRecursiveæ˜¯1-1345ä¸­1çš„æ•°ç›®
     int numRecursive = NumberOf1(strN + 1);
 
     return numFirstDigit + numOtherDigits + numRecursive;
@@ -101,7 +101,7 @@ int PowerBase10(unsigned int n)
     return result;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, int n, int expected)
 {
     if(testName != nullptr)

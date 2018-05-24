@@ -8,13 +8,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ51£ºÊı×éÖĞµÄÄæĞò¶Ô
-// ÌâÄ¿£ºÔÚÊı×éÖĞµÄÁ½¸öÊı×ÖÈç¹ûÇ°ÃæÒ»¸öÊı×Ö´óÓÚºóÃæµÄÊı×Ö£¬ÔòÕâÁ½¸öÊı×Ö×é
-// ³ÉÒ»¸öÄæĞò¶Ô¡£ÊäÈëÒ»¸öÊı×é£¬Çó³öÕâ¸öÊı×éÖĞµÄÄæĞò¶ÔµÄ×ÜÊı¡£
+// é¢è¯•é¢˜51ï¼šæ•°ç»„ä¸­çš„é€†åºå¯¹
+// é¢˜ç›®ï¼šåœ¨æ•°ç»„ä¸­çš„ä¸¤ä¸ªæ•°å­—å¦‚æœå‰é¢ä¸€ä¸ªæ•°å­—å¤§äºåé¢çš„æ•°å­—ï¼Œåˆ™è¿™ä¸¤ä¸ªæ•°å­—ç»„
+// æˆä¸€ä¸ªé€†åºå¯¹ã€‚è¾“å…¥ä¸€ä¸ªæ•°ç»„ï¼Œæ±‚å‡ºè¿™ä¸ªæ•°ç»„ä¸­çš„é€†åºå¯¹çš„æ€»æ•°ã€‚
 
 #include <cstdio>
 
@@ -48,9 +48,9 @@ int InversePairsCore(int* data, int* copy, int start, int end)
     int left = InversePairsCore(copy, data, start, start + length);
     int right = InversePairsCore(copy, data, start + length + 1, end);
 
-    // i³õÊ¼»¯ÎªÇ°°ë¶Î×îºóÒ»¸öÊı×ÖµÄÏÂ±ê
+    // iåˆå§‹åŒ–ä¸ºå‰åŠæ®µæœ€åä¸€ä¸ªæ•°å­—çš„ä¸‹æ ‡
     int i = start + length;
-    // j³õÊ¼»¯Îªºó°ë¶Î×îºóÒ»¸öÊı×ÖµÄÏÂ±ê
+    // jåˆå§‹åŒ–ä¸ºååŠæ®µæœ€åä¸€ä¸ªæ•°å­—çš„ä¸‹æ ‡
     int j = end;
     int indexCopy = end;
     int count = 0;
@@ -76,7 +76,7 @@ int InversePairsCore(int* data, int* copy, int start, int end)
     return left + right + count;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(char* testName, int* data, int length, int expected)
 {
     if(testName != nullptr)
@@ -96,7 +96,7 @@ void Test1()
     Test("Test1", data, sizeof(data) / sizeof(int), expected);
 }
 
-// µİ¼õÅÅĞòÊı×é
+// é€’å‡æ’åºæ•°ç»„
 void Test2()
 {
     int data[] = { 6, 5, 4, 3, 2, 1 };
@@ -105,7 +105,7 @@ void Test2()
     Test("Test2", data, sizeof(data) / sizeof(int), expected);
 }
 
-// µİÔöÅÅĞòÊı×é
+// é€’å¢æ’åºæ•°ç»„
 void Test3()
 {
     int data[] = { 1, 2, 3, 4, 5, 6 };
@@ -114,7 +114,7 @@ void Test3()
     Test("Test3", data, sizeof(data) / sizeof(int), expected);
 }
 
-// Êı×éÖĞÖ»ÓĞÒ»¸öÊı×Ö
+// æ•°ç»„ä¸­åªæœ‰ä¸€ä¸ªæ•°å­—
 void Test4()
 {
     int data[] = { 1 };
@@ -124,7 +124,7 @@ void Test4()
 }
 
 
-// Êı×éÖĞÖ»ÓĞÁ½¸öÊı×Ö£¬µİÔöÅÅĞò
+// æ•°ç»„ä¸­åªæœ‰ä¸¤ä¸ªæ•°å­—ï¼Œé€’å¢æ’åº
 void Test5()
 {
     int data[] = { 1, 2 };
@@ -133,7 +133,7 @@ void Test5()
     Test("Test5", data, sizeof(data) / sizeof(int), expected);
 }
 
-// Êı×éÖĞÖ»ÓĞÁ½¸öÊı×Ö£¬µİ¼õÅÅĞò
+// æ•°ç»„ä¸­åªæœ‰ä¸¤ä¸ªæ•°å­—ï¼Œé€’å‡æ’åº
 void Test6()
 {
     int data[] = { 2, 1 };
@@ -142,7 +142,7 @@ void Test6()
     Test("Test6", data, sizeof(data) / sizeof(int), expected);
 }
 
-// Êı×éÖĞÓĞÏàµÈµÄÊı×Ö
+// æ•°ç»„ä¸­æœ‰ç›¸ç­‰çš„æ•°å­—
 void Test7()
 {
     int data[] = { 1, 2, 1, 2, 1 };

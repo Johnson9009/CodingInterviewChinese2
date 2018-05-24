@@ -8,14 +8,14 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ39£ºÊı×éÖĞ³öÏÖ´ÎÊı³¬¹ıÒ»°ëµÄÊı×Ö
-// ÌâÄ¿£ºÊı×éÖĞÓĞÒ»¸öÊı×Ö³öÏÖµÄ´ÎÊı³¬¹ıÊı×é³¤¶ÈµÄÒ»°ë£¬ÇëÕÒ³öÕâ¸öÊı×Ö¡£Àı
-// ÈçÊäÈëÒ»¸ö³¤¶ÈÎª9µÄÊı×é{1, 2, 3, 2, 2, 2, 5, 4, 2}¡£ÓÉÓÚÊı×Ö2ÔÚÊı×éÖĞ
-// ³öÏÖÁË5´Î£¬³¬¹ıÊı×é³¤¶ÈµÄÒ»°ë£¬Òò´ËÊä³ö2¡£
+// é¢è¯•é¢˜39ï¼šæ•°ç»„ä¸­å‡ºç°æ¬¡æ•°è¶…è¿‡ä¸€åŠçš„æ•°å­—
+// é¢˜ç›®ï¼šæ•°ç»„ä¸­æœ‰ä¸€ä¸ªæ•°å­—å‡ºç°çš„æ¬¡æ•°è¶…è¿‡æ•°ç»„é•¿åº¦çš„ä¸€åŠï¼Œè¯·æ‰¾å‡ºè¿™ä¸ªæ•°å­—ã€‚ä¾‹
+// å¦‚è¾“å…¥ä¸€ä¸ªé•¿åº¦ä¸º9çš„æ•°ç»„{1, 2, 3, 2, 2, 2, 5, 4, 2}ã€‚ç”±äºæ•°å­—2åœ¨æ•°ç»„ä¸­
+// å‡ºç°äº†5æ¬¡ï¼Œè¶…è¿‡æ•°ç»„é•¿åº¦çš„ä¸€åŠï¼Œå› æ­¤è¾“å‡º2ã€‚
 
 #include <cstdio>
 #include "../Utilities/Array.h"
@@ -50,7 +50,7 @@ bool CheckMoreThanHalf(int* numbers, int length, int number)
     return isMoreThanHalf;
 }
 
-// ====================·½·¨1====================
+// ====================æ–¹æ³•1====================
 int MoreThanHalfNum_Solution1(int* numbers, int length)
 {
     if(CheckInvalidArray(numbers, length))
@@ -81,7 +81,7 @@ int MoreThanHalfNum_Solution1(int* numbers, int length)
     return result;
 }
 
-// ====================·½·¨2====================
+// ====================æ–¹æ³•2====================
 int MoreThanHalfNum_Solution2(int* numbers, int length)
 {
     if(CheckInvalidArray(numbers, length))
@@ -108,7 +108,7 @@ int MoreThanHalfNum_Solution2(int* numbers, int length)
     return result;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(char* testName, int* numbers, int length, int expectedValue, bool expectedFlag)
 {
     if(testName != nullptr)
@@ -135,42 +135,42 @@ void Test(char* testName, int* numbers, int length, int expectedValue, bool expe
     delete[] copy;
 }
 
-// ´æÔÚ³öÏÖ´ÎÊı³¬¹ıÊı×é³¤¶ÈÒ»°ëµÄÊı×Ö
+// å­˜åœ¨å‡ºç°æ¬¡æ•°è¶…è¿‡æ•°ç»„é•¿åº¦ä¸€åŠçš„æ•°å­—
 void Test1()
 {
     int numbers[] = {1, 2, 3, 2, 2, 2, 5, 4, 2};
     Test("Test1", numbers, sizeof(numbers) / sizeof(int), 2, false);
 }
 
-// ²»´æÔÚ³öÏÖ´ÎÊı³¬¹ıÊı×é³¤¶ÈÒ»°ëµÄÊı×Ö
+// ä¸å­˜åœ¨å‡ºç°æ¬¡æ•°è¶…è¿‡æ•°ç»„é•¿åº¦ä¸€åŠçš„æ•°å­—
 void Test2()
 {
     int numbers[] = {1, 2, 3, 2, 4, 2, 5, 2, 3};
     Test("Test2", numbers, sizeof(numbers) / sizeof(int), 0, true);
 }
 
-// ³öÏÖ´ÎÊı³¬¹ıÊı×é³¤¶ÈÒ»°ëµÄÊı×Ö¶¼³öÏÖÔÚÊı×éµÄÇ°°ë²¿·Ö
+// å‡ºç°æ¬¡æ•°è¶…è¿‡æ•°ç»„é•¿åº¦ä¸€åŠçš„æ•°å­—éƒ½å‡ºç°åœ¨æ•°ç»„çš„å‰åŠéƒ¨åˆ†
 void Test3()
 {
     int numbers[] = {2, 2, 2, 2, 2, 1, 3, 4, 5};
     Test("Test3", numbers, sizeof(numbers) / sizeof(int), 2, false);
 }
 
-// ³öÏÖ´ÎÊı³¬¹ıÊı×é³¤¶ÈÒ»°ëµÄÊı×Ö¶¼³öÏÖÔÚÊı×éµÄºó°ë²¿·Ö
+// å‡ºç°æ¬¡æ•°è¶…è¿‡æ•°ç»„é•¿åº¦ä¸€åŠçš„æ•°å­—éƒ½å‡ºç°åœ¨æ•°ç»„çš„ååŠéƒ¨åˆ†
 void Test4()
 {
     int numbers[] = {1, 3, 4, 5, 2, 2, 2, 2, 2};
     Test("Test4", numbers, sizeof(numbers) / sizeof(int), 2, false);
 }
 
-// ÊäÈë¿ÕÖ¸Õë
+// è¾“å…¥ç©ºæŒ‡é’ˆ
 void Test5()
 {
    int numbers[] = {1};
    Test("Test5", numbers, 1, 1, false);
 }
 
-// ÊäÈë¿ÕÖ¸Õë
+// è¾“å…¥ç©ºæŒ‡é’ˆ
 void Test6()
 {
     Test("Test6", nullptr, 0, 0, true);

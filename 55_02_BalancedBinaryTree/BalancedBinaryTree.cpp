@@ -8,18 +8,18 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ55£¨¶ş£©£ºÆ½ºâ¶ş²æÊ÷
-// ÌâÄ¿£ºÊäÈëÒ»¿Ã¶ş²æÊ÷µÄ¸ù½áµã£¬ÅĞ¶Ï¸ÃÊ÷ÊÇ²»ÊÇÆ½ºâ¶ş²æÊ÷¡£Èç¹ûÄ³¶ş²æÊ÷ÖĞ
-// ÈÎÒâ½áµãµÄ×óÓÒ×ÓÊ÷µÄÉî¶ÈÏà²î²»³¬¹ı1£¬ÄÇÃ´Ëü¾ÍÊÇÒ»¿ÃÆ½ºâ¶ş²æÊ÷¡£
+// é¢è¯•é¢˜55ï¼ˆäºŒï¼‰ï¼šå¹³è¡¡äºŒå‰æ ‘
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€æ£µäºŒå‰æ ‘çš„æ ¹ç»“ç‚¹ï¼Œåˆ¤æ–­è¯¥æ ‘æ˜¯ä¸æ˜¯å¹³è¡¡äºŒå‰æ ‘ã€‚å¦‚æœæŸäºŒå‰æ ‘ä¸­
+// ä»»æ„ç»“ç‚¹çš„å·¦å³å­æ ‘çš„æ·±åº¦ç›¸å·®ä¸è¶…è¿‡1ï¼Œé‚£ä¹ˆå®ƒå°±æ˜¯ä¸€æ£µå¹³è¡¡äºŒå‰æ ‘ã€‚
 
 #include <cstdio>
 #include "../Utilities/BinaryTree.h"
 
-// ====================·½·¨1====================
+// ====================æ–¹æ³•1====================
 int TreeDepth(const BinaryTreeNode* pRoot)
 {
     if(pRoot == nullptr)
@@ -46,7 +46,7 @@ bool IsBalanced_Solution1(const BinaryTreeNode* pRoot)
         && IsBalanced_Solution1(pRoot->m_pRight);
 }
 
-// ====================·½·¨2====================
+// ====================æ–¹æ³•2====================
 bool IsBalanced(const BinaryTreeNode* pRoot, int* pDepth);
 
 bool IsBalanced_Solution2(const BinaryTreeNode* pRoot)
@@ -78,7 +78,7 @@ bool IsBalanced(const BinaryTreeNode* pRoot, int* pDepth)
     return false;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, const BinaryTreeNode* pRoot, bool expected)
 {
     if(testName != nullptr)
@@ -97,7 +97,7 @@ void Test(const char* testName, const BinaryTreeNode* pRoot, bool expected)
         printf("Failed.\n");
 }
 
-// ÍêÈ«¶ş²æÊ÷
+// å®Œå…¨äºŒå‰æ ‘
 //             1
 //         /      \
 //        2        3
@@ -122,7 +122,7 @@ void Test1()
     DestroyTree(pNode1);
 }
 
-// ²»ÊÇÍêÈ«¶ş²æÊ÷£¬µ«ÊÇÆ½ºâ¶ş²æÊ÷
+// ä¸æ˜¯å®Œå…¨äºŒå‰æ ‘ï¼Œä½†æ˜¯å¹³è¡¡äºŒå‰æ ‘
 //             1
 //         /      \
 //        2        3
@@ -150,7 +150,7 @@ void Test2()
     DestroyTree(pNode1);
 }
 
-// ²»ÊÇÆ½ºâ¶ş²æÊ÷
+// ä¸æ˜¯å¹³è¡¡äºŒå‰æ ‘
 //             1
 //         /      \
 //        2        3
@@ -231,7 +231,7 @@ void Test5()
     DestroyTree(pNode1);
 }
 
-// Ê÷ÖĞÖ»ÓĞ1¸ö½áµã
+// æ ‘ä¸­åªæœ‰1ä¸ªç»“ç‚¹
 void Test6()
 {
     BinaryTreeNode* pNode1 = CreateBinaryTreeNode(1);
@@ -240,7 +240,7 @@ void Test6()
     DestroyTree(pNode1);
 }
 
-// Ê÷ÖĞÃ»ÓĞ½áµã
+// æ ‘ä¸­æ²¡æœ‰ç»“ç‚¹
 void Test7()
 {
     Test("Test7", nullptr, true);

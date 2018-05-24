@@ -8,20 +8,20 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸åž‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ62£ºÔ²È¦ÖÐ×îºóÊ£ÏÂµÄÊý×Ö
-// ÌâÄ¿£º0, 1, ¡­, n-1Õân¸öÊý×ÖÅÅ³ÉÒ»¸öÔ²È¦£¬´ÓÊý×Ö0¿ªÊ¼Ã¿´Î´ÓÕâ¸öÔ²È¦Àï
-// É¾³ýµÚm¸öÊý×Ö¡£Çó³öÕâ¸öÔ²È¦ÀïÊ£ÏÂµÄ×îºóÒ»¸öÊý×Ö¡£
+// é¢è¯•é¢˜62ï¼šåœ†åœˆä¸­æœ€åŽå‰©ä¸‹çš„æ•°å­—
+// é¢˜ç›®ï¼š0, 1, â€¦, n-1è¿™nä¸ªæ•°å­—æŽ’æˆä¸€ä¸ªåœ†åœˆï¼Œä»Žæ•°å­—0å¼€å§‹æ¯æ¬¡ä»Žè¿™ä¸ªåœ†åœˆé‡Œ
+// åˆ é™¤ç¬¬mä¸ªæ•°å­—ã€‚æ±‚å‡ºè¿™ä¸ªåœ†åœˆé‡Œå‰©ä¸‹çš„æœ€åŽä¸€ä¸ªæ•°å­—ã€‚
 
 #include <cstdio>
 #include <list>
 
 using namespace std;
 
-// ====================·½·¨1====================
+// ====================æ–¹æ³•1====================
 int LastRemaining_Solution1(unsigned int n, unsigned int m)
 {
     if(n < 1 || m < 1)
@@ -55,7 +55,7 @@ int LastRemaining_Solution1(unsigned int n, unsigned int m)
     return *(current);
 }
 
-// ====================·½·¨2====================
+// ====================æ–¹æ³•2====================
 int LastRemaining_Solution2(unsigned int n, unsigned int m)
 {
     if(n < 1 || m < 1)
@@ -68,7 +68,7 @@ int LastRemaining_Solution2(unsigned int n, unsigned int m)
     return last;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, unsigned int n, unsigned int m, int expected)
 {
     if(testName != nullptr)

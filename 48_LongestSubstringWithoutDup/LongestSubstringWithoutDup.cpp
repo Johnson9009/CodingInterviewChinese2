@@ -8,18 +8,18 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ48£º×î³¤²»º¬ÖØ¸´×Ö·ûµÄ×Ó×Ö·û´®
-// ÌâÄ¿£ºÇë´Ó×Ö·û´®ÖĞÕÒ³öÒ»¸ö×î³¤µÄ²»°üº¬ÖØ¸´×Ö·ûµÄ×Ó×Ö·û´®£¬¼ÆËã¸Ã×î³¤×Ó
-// ×Ö·û´®µÄ³¤¶È¡£¼ÙÉè×Ö·û´®ÖĞÖ»°üº¬´Ó'a'µ½'z'µÄ×Ö·û¡£
+// é¢è¯•é¢˜48ï¼šæœ€é•¿ä¸å«é‡å¤å­—ç¬¦çš„å­å­—ç¬¦ä¸²
+// é¢˜ç›®ï¼šè¯·ä»å­—ç¬¦ä¸²ä¸­æ‰¾å‡ºä¸€ä¸ªæœ€é•¿çš„ä¸åŒ…å«é‡å¤å­—ç¬¦çš„å­å­—ç¬¦ä¸²ï¼Œè®¡ç®—è¯¥æœ€é•¿å­
+// å­—ç¬¦ä¸²çš„é•¿åº¦ã€‚å‡è®¾å­—ç¬¦ä¸²ä¸­åªåŒ…å«ä»'a'åˆ°'z'çš„å­—ç¬¦ã€‚
 
 #include <string>
 #include <iostream>
 
-// ·½·¨Ò»£ºÂùÁ¦·¨
+// æ–¹æ³•ä¸€ï¼šè›®åŠ›æ³•
 bool hasDuplication(const std::string& str, int position[]);
 
 int longestSubstringWithoutDuplication_1(const std::string& str)
@@ -64,7 +64,7 @@ bool hasDuplication(const std::string& str, int position[])
     return false;
 }
 
-// ·½·¨Ò»£º¶¯Ì¬¹æ»®
+// æ–¹æ³•ä¸€ï¼šåŠ¨æ€è§„åˆ’
 int longestSubstringWithoutDuplication_2(const std::string& str)
 {
     int curLength = 0;
@@ -96,7 +96,7 @@ int longestSubstringWithoutDuplication_2(const std::string& str)
     return maxLength;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void testSolution1(const std::string& input, int expected)
 {
     int output = longestSubstringWithoutDuplication_1(input);

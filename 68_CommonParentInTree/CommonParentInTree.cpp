@@ -8,12 +8,12 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€•â€•åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
-// ÃæÊÔÌâ68£ºÊ÷ÖĞÁ½¸ö½áµãµÄ×îµÍ¹«¹²×æÏÈ
-// ÌâÄ¿£ºÊäÈëÁ½¸öÊ÷½áµã£¬ÇóËüÃÇµÄ×îµÍ¹«¹²×æÏÈ¡£
+// é¢è¯•é¢˜68ï¼šæ ‘ä¸­ä¸¤ä¸ªç»“ç‚¹çš„æœ€ä½å…¬å…±ç¥–å…ˆ
+// é¢˜ç›®ï¼šè¾“å…¥ä¸¤ä¸ªæ ‘ç»“ç‚¹ï¼Œæ±‚å®ƒä»¬çš„æœ€ä½å…¬å…±ç¥–å…ˆã€‚
 
 #include <cstdio>
 #include "../Utilities/Tree.h"
@@ -80,7 +80,7 @@ const TreeNode* GetLastCommonParent(const TreeNode* pRoot, const TreeNode* pNode
     return GetLastCommonNode(path1, path2);
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(const char* testName, const TreeNode* pRoot, const TreeNode* pNode1, const TreeNode* pNode2, TreeNode* pExpected)
 {
     if(testName != nullptr)
@@ -95,7 +95,7 @@ void Test(const char* testName, const TreeNode* pRoot, const TreeNode* pNode1, c
         printf("Failed.\n");
 }
 
-// ĞÎ×´ÆÕÍ¨µÄÊ÷
+// å½¢çŠ¶æ™®é€šçš„æ ‘
 //              1
 //            /   \
 //           2     3
@@ -132,7 +132,7 @@ void Test1()
     Test("Test1", pNode1, pNode6, pNode8, pNode2);
 }
 
-// Ê÷ÍË»¯³ÉÒ»¸öÁ´±í
+// æ ‘é€€åŒ–æˆä¸€ä¸ªé“¾è¡¨
 //               1
 //              /
 //             2
@@ -158,7 +158,7 @@ void Test2()
     Test("Test2", pNode1, pNode5, pNode4, pNode3);
 }
 
-// Ê÷ÍË»¯³ÉÒ»¸öÁ´±í£¬Ò»¸ö½áµã²»ÔÚÊ÷ÖĞ
+// æ ‘é€€åŒ–æˆä¸€ä¸ªé“¾è¡¨ï¼Œä¸€ä¸ªç»“ç‚¹ä¸åœ¨æ ‘ä¸­
 //               1
 //              /
 //             2
@@ -186,7 +186,7 @@ void Test3()
     Test("Test3", pNode1, pNode5, pNode6, nullptr);
 }
 
-// ÊäÈënullptr
+// è¾“å…¥nullptr
 void Test4()
 {
     Test("Test4", nullptr, nullptr, nullptr, nullptr);

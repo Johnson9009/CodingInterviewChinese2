@@ -23,34 +23,35 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <stdexcept>
 #include <cstdio>
 
-BinaryTreeNode* ConstructCore(int const* preorder_1st, int const* preorder_last,
-                              int const* inorder_1st, int const* inorder_last) {
-  int pre_length = preorder_last - preorder_1st + 1;
-  int in_length = inorder_last - inorder_1st + 1;
+BinaryTreeNode* ConstructCore(int const* preorder_begin, int const* preorder_end,
+                              int const* inorder_begin, int const* inorder_end) {
+  int pre_length = preorder_end - preorder_begin;
+  int in_length = inorder_end - inorder_begin;
   if (pre_length != in_length) throw std::invalid_argument("");
   if (pre_length == 0) return nullptr;
 
   BinaryTreeNode* root = new BinaryTreeNode();
-  root->m_nValue = *preorder_1st;
-  int const* cur_inorder = inorder_1st;
-  for(; cur_inorder <= inorder_last; ++cur_inorder) {
+  root->m_nValue = *preorder_begin;
+  int const* cur_inorder = inorder_begin;
+  for(; cur_inorder < inorder_end; ++cur_inorder) {
     if (*cur_inorder == root->m_nValue) break;
   }
 
-  if (cur_inorder > inorder_last) throw std::invalid_argument("");
+  if (cur_inorder == inorder_end) throw std::invalid_argument("");
 
-  root->m_pLeft = ConstructCore((preorder_1st + 1), (preorder_1st + (cur_inorder - inorder_1st)),
-                                inorder_1st, (cur_inorder - 1));
-  root->m_pRight = ConstructCore((preorder_1st + (cur_inorder - inorder_1st + 1)), preorder_last,
-                                 (cur_inorder + 1), inorder_last);
+  int left_length = cur_inorder - inorder_begin;
+  root->m_pLeft = ConstructCore((preorder_begin + 1), (preorder_begin + 1 + left_length),
+                                inorder_begin, cur_inorder);
+  root->m_pRight = ConstructCore((preorder_begin + 1 + left_length), preorder_end,
+                                 (cur_inorder + 1), inorder_end);
   return root;
 
 }
 
 BinaryTreeNode* Construct(int* preorder, int* inorder, int length) {
-  if ((preorder == nullptr) || (inorder == nullptr) || (length < 1))
+  if ((preorder == nullptr) || (inorder == nullptr) || (length <= 0))
     throw std::invalid_argument("");
-  return ConstructCore(preorder, (preorder + length - 1), inorder, (inorder + length - 1));
+  return ConstructCore(preorder, (preorder + length), inorder, (inorder + length));
 }
 
 // ====================测试代码====================

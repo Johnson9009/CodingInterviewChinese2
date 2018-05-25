@@ -20,33 +20,21 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #include <cstdio>
 #include "../Utilities/List.h"
+#include <stdexcept>
 
-ListNode* FindKthToTail(ListNode* pListHead, unsigned int k)
-{
-    if(pListHead == nullptr || k == 0)
-        return nullptr;
-
-    ListNode *pAhead = pListHead;
-    ListNode *pBehind = nullptr;
-
-    for(unsigned int i = 0; i < k - 1; ++ i)
-    {
-        if(pAhead->m_pNext != nullptr)
-            pAhead = pAhead->m_pNext;
-        else
-        {
-            return nullptr;
-        }
-    }
-
-    pBehind = pListHead;
-    while(pAhead->m_pNext != nullptr)
-    {
-        pAhead = pAhead->m_pNext;
-        pBehind = pBehind->m_pNext;
-    }
-
-    return pBehind;
+ListNode* FindKthToTail(ListNode* pListHead, unsigned int k) {
+  if ((pListHead == nullptr) || (k == 0)) throw std::invalid_argument("");
+  ListNode* ahead = pListHead;
+  for(size_t i = 0; i < (k - 1); ++i) {
+    ahead = ahead->m_pNext;
+    if (ahead == nullptr) throw std::invalid_argument("");
+  }
+  ListNode* behind = pListHead;
+  while (ahead->m_pNext != nullptr) {
+    ahead = ahead->m_pNext;
+    behind = behind->m_pNext;
+  }
+  return behind;
 }
 
 // ====================测试代码====================
@@ -121,8 +109,11 @@ void Test4()
 {
     printf("=====Test4 starts:=====\n");
     printf("expected result: nullptr.\n");
-    ListNode* pNode = FindKthToTail(nullptr, 100);
-    PrintListNode(pNode);
+    try {
+      ListNode* pNode = FindKthToTail(nullptr, 100);
+    } catch (std::invalid_argument const& ia) {
+      PrintListNode(nullptr);
+    }
 }
 
 // 测试输入的第二个参数大于链表的结点总数
@@ -141,8 +132,11 @@ void Test5()
     ConnectListNodes(pNode4, pNode5);
 
     printf("expected result: nullptr.\n");
-    ListNode* pNode = FindKthToTail(pNode1, 6);
-    PrintListNode(pNode);
+    try {
+      ListNode* pNode = FindKthToTail(pNode1, 6);
+    } catch (std::invalid_argument const& ia) {
+      PrintListNode(nullptr);
+    }
 
     DestroyList(pNode1);
 }
@@ -163,8 +157,11 @@ void Test6()
     ConnectListNodes(pNode4, pNode5);
 
     printf("expected result: nullptr.\n");
-    ListNode* pNode = FindKthToTail(pNode1, 0);
-    PrintListNode(pNode);
+    try {
+      ListNode* pNode = FindKthToTail(pNode1, 0);
+    } catch (std::invalid_argument const& ia) {
+      PrintListNode(nullptr);
+    }
 
     DestroyList(pNode1);
 }

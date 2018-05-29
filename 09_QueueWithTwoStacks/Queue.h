@@ -20,23 +20,21 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <stack>
 #include <exception>
 
-using namespace std;
-
 template <typename T> class CQueue
 {
 public:
-    CQueue(void);
-    ~CQueue(void);
+  CQueue(void);
+  ~CQueue(void);
     
-    // 在队列末尾添加一个结点
-    void appendTail(const T& node);
-
-    // 删除队列的头结点
-    T deleteHead();
+  // 在队列末尾添加一个结点
+  void appendTail(const T& node);
+  
+  // 删除队列的头结点
+  T deleteHead();
 
 private:
-    stack<T> stack1;
-    stack<T> stack2;
+  std::stack<T> stack1;
+  std::stack<T> stack2;
 };
 
 template <typename T> CQueue<T>::CQueue(void)
@@ -47,28 +45,25 @@ template <typename T> CQueue<T>::~CQueue(void)
 {
 }
 
-template<typename T> void CQueue<T>::appendTail(const T& element)
-{
-    stack1.push(element);
+template<typename T>
+void CQueue<T>::appendTail(const T& element) {
+  stack1.push(element);
 } 
 
-template<typename T> T CQueue<T>::deleteHead()
-{
-    if(stack2.size()<= 0)
-    {
-        while(stack1.size()>0)
-        {
-            T& data = stack1.top();
-            stack1.pop();
-            stack2.push(data);
-        }
+template<typename T>
+T CQueue<T>::deleteHead() {
+  if (stack2.empty() == true) {
+    while (stack1.empty() == false) {
+      T const& item = stack1.top();
+      // The push method of std::stack only use input to initialize the its inside item, so const
+      // reference is enough.
+      stack2.push(item);
+      stack1.pop();
     }
+  }
 
-    if(stack2.size() == 0)
-        throw "queue is empty";
-
-    T head = stack2.top();
-    stack2.pop();
-
-    return head;
+  if (stack2.empty() == true) throw std::logic_error("queue empty!");
+  T const& head_item = stack2.top();
+  stack2.pop();
+  return head_item;
 }

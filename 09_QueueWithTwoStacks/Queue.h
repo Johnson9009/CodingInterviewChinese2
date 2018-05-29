@@ -18,7 +18,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #pragma once
 #include <stack>
-#include <exception>
+#include <stdexcept>
 
 template <typename T> class CQueue
 {

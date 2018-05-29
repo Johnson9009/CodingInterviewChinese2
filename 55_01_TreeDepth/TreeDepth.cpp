@@ -19,6 +19,13 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <cstdio>
 #include "../Utilities/BinaryTree.h"
 
+int TreeDepth(BinaryTreeNode const* root) {
+  if (root == nullptr) return 0;
+  int left_depth = TreeDepth(root->m_pLeft);
+  int right_depth = TreeDepth(root->m_pRight);
+  return (left_depth > right_depth) ? (left_depth + 1) : (right_depth + 1);
+}
+
 // ====================测试代码====================
 void Test(const char* testName, const BinaryTreeNode* pRoot, int expected) {
   int result = TreeDepth(pRoot);

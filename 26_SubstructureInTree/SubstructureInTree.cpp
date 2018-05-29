@@ -18,32 +18,58 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <cstdio>
 
 struct BinaryTreeNode {
-  double m_dbValue;
-  BinaryTreeNode* m_pLeft;
-  BinaryTreeNode* m_pRight;
+  double value;
+  BinaryTreeNode* left;
+  BinaryTreeNode* right;
 };
+
+bool IsEqual(double a, double b) {
+  if (((a - b) > -1e-7) && ((a - b) < 1e-7)) return true;
+  return false;
+}
+
+bool IsSameTree(BinaryTreeNode const* root1, BinaryTreeNode const* root2) {
+  if (root2 == nullptr) return true;
+  if (root1 == nullptr) return false;
+
+  if ((IsEqual(root1->value, root2->value) == true) &&
+      (IsSameTree(root1->left, root2->left) == true) &&
+      (IsSameTree(root1->right, root2->right) == true)) {
+    return true;
+  }
+  return false;
+}
+
+bool HasSubTree(BinaryTreeNode const* root1, BinaryTreeNode const* root2) {
+  if (root2 == nullptr) return true;
+  if (root1 == nullptr) return false;
+
+  if (IsSameTree(root1, root2) == true) return true;
+
+  return (HasSubTree(root1->left, root2) || HasSubTree(root1->right, root2));
+}
 
 // ====================辅助测试代码====================
 BinaryTreeNode* CreateBinaryTreeNode(double dbValue) {
   BinaryTreeNode* pNode = new BinaryTreeNode();
-  pNode->m_dbValue = dbValue;
-  pNode->m_pLeft = nullptr;
-  pNode->m_pRight = nullptr;
+  pNode->value = dbValue;
+  pNode->left = nullptr;
+  pNode->right = nullptr;
 
   return pNode;
 }
 
 void ConnectTreeNodes(BinaryTreeNode* pParent, BinaryTreeNode* pLeft, BinaryTreeNode* pRight) {
   if (pParent != nullptr) {
-    pParent->m_pLeft = pLeft;
-    pParent->m_pRight = pRight;
+    pParent->left = pLeft;
+    pParent->right = pRight;
   }
 }
 
 void DestroyTree(BinaryTreeNode* pRoot) {
   if (pRoot != nullptr) {
-    BinaryTreeNode* pLeft = pRoot->m_pLeft;
-    BinaryTreeNode* pRight = pRoot->m_pRight;
+    BinaryTreeNode* pLeft = pRoot->left;
+    BinaryTreeNode* pRight = pRoot->right;
 
     delete pRoot;
     pRoot = nullptr;
@@ -54,21 +80,21 @@ void DestroyTree(BinaryTreeNode* pRoot) {
 }
 
 // ====================测试代码====================
-void Test(char* testName, BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2, bool expected) {
-  if (HasSubtree(pRoot1, pRoot2) == expected)
+void Test(char const* testName, BinaryTreeNode* pRoot1, BinaryTreeNode* pRoot2, bool expected) {
+  if (HasSubTree(pRoot1, pRoot2) == expected)
     printf("%s passed.\n", testName);
   else
     printf("%s failed.\n", testName);
 }
 
 // 树中结点含有分叉，树B是树A的子结构
-//                  8                8
-//              /       \           / \
-//             8         7         9   2
-//           /   \
-//          9     2
-//               / \
-//              4   7
+//              8             8
+//             / \           / \
+//            8   7         9   2
+//           / \
+//          9   2
+//             / \
+//            4   7
 void Test1() {
   BinaryTreeNode* pNodeA1 = CreateBinaryTreeNode(8);
   BinaryTreeNode* pNodeA2 = CreateBinaryTreeNode(8);
@@ -199,11 +225,11 @@ void Test4() {
 
 // 树中结点只有右子结点，树B是树A的子结构
 //       8                   8
-//        \                   \ 
+//        \                   \
 //         8                   9
 //          \                   \
 //           9                   2
-//            \      
+//            \
 //             2
 //              \
 //               5
@@ -234,11 +260,11 @@ void Test5() {
 
 // 树A中结点只有右子结点，树B不是树A的子结构
 //       8                   8
-//        \                   \ 
+//        \                   \
 //         8                   9
 //          \                 / \
 //           9               3   2
-//            \      
+//            \
 //             2
 //              \
 //               5
@@ -293,14 +319,14 @@ void Test8() {
   ConnectTreeNodes(pNodeA1, nullptr, pNodeA2);
   ConnectTreeNodes(pNodeA2, pNodeA3, pNodeA4);
 
-  Test("Test8", pNodeA1, nullptr, false);
+  Test("Test8", pNodeA1, nullptr, true);
 
   DestroyTree(pNodeA1);
 }
 
 // 树A和树B都为空
 void Test9() {
-  Test("Test9", nullptr, nullptr, false);
+  Test("Test9", nullptr, nullptr, true);
 }
 
 int main(int argc, char* argv[]) {

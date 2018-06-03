@@ -20,4 +20,4 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #define EXPORT
 #endif
 
-EXPORT int Partition(int data[], int length, int start, int end);
+EXPORT int Partition(int* data, int begin, int end);

@@ -21,52 +21,38 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <stdexcept>
 #include "../Utilities/Array.h"
 
-bool g_bInputInvalid = false;
-
-bool CheckInvalidArray(int* numbers, int length) {
-  g_bInputInvalid = false;
-  if (numbers == nullptr && length <= 0) g_bInputInvalid = true;
-
-  return g_bInputInvalid;
-}
-
 bool CheckMoreThanHalf(int* numbers, int length, int number) {
   int times = 0;
   for (int i = 0; i < length; ++i) {
     if (numbers[i] == number) times++;
   }
-
-  bool isMoreThanHalf = true;
   if (times * 2 <= length) {
-    g_bInputInvalid = true;
-    isMoreThanHalf = false;
+    return false;
   }
-
-  return isMoreThanHalf;
+  return true;
 }
 
 // ====================方法1====================
 int MoreThanHalfNum_Solution1(int* numbers, int length) {
-  if (CheckInvalidArray(numbers, length)) return 0;
-
-  int middle = length >> 1;
-  int start = 0;
-  int end = length - 1;
-  int index = Partition(numbers, length, start, end);
-  while (index != middle) {
-    if (index > middle) {
-      end = index - 1;
-      index = Partition(numbers, length, start, end);
+  if ((numbers == nullptr) || (length <= 0)) throw std::invalid_argument("");
+  int mid_idx = length >> 1;
+  int begin = 0;
+  int end = length;
+  // Only loop when there are more than one items in data need to be sort.
+  while ((begin + 1) < end) {
+    int pivot_idx = Partition(numbers, begin, end);
+    if (pivot_idx == mid_idx) {
+      break;
+    } else if (pivot_idx < mid_idx) {
+      begin = pivot_idx + 1;
     } else {
-      start = index + 1;
-      index = Partition(numbers, length, start, end);
+      end = pivot_idx;
     }
   }
-
-  int result = numbers[middle];
-  if (!CheckMoreThanHalf(numbers, length, result)) result = 0;
-
-  return result;
+  if (CheckMoreThanHalf(numbers, length, numbers[mid_idx]) == false) {
+    throw std::invalid_argument("");
+  }
+  return numbers[mid_idx];
 }
 
 // ====================方法2====================
@@ -98,15 +84,24 @@ void Test(char const* testName, int* numbers, int length, int expectedValue, boo
   for (int i = 0; i < length; ++i) copy[i] = numbers[i];
 
   printf("Test for solution1: ");
-  int result = MoreThanHalfNum_Solution1(numbers, length);
-  if (result == expectedValue && g_bInputInvalid == expectedFlag)
-    printf("Passed.\n");
-  else
-    printf("Failed.\n");
+  try {
+    int result = MoreThanHalfNum_Solution1(numbers, length);
+    if (result == expectedValue) {
+      printf("Passed.\n");
+    } else {
+      printf("Failed.\n");
+    }
+  } catch (std::invalid_argument const& ia) {
+    if (expectedFlag == true) {
+      printf("Passed.\n");
+    } else {
+      printf("Failed.\n");
+    }
+  }
 
   printf("Test for solution2: ");
   try {
-    result = MoreThanHalfNum_Solution2(copy, length);
+    int result = MoreThanHalfNum_Solution2(copy, length);
     if (result == expectedValue) {
       printf("Passed.\n");
     } else {

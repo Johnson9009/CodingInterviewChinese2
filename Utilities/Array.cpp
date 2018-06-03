@@ -12,45 +12,38 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 作者：何海涛
 //==================================================================
 
-#include <stdlib.h>
 #include "Array.h"
-#include <exception>
+#include <stdlib.h>
+#include <utility>
+#include <stdexcept>
 
 // Random Partition
-int RandomInRange(int min, int max)
-{
-    int random = rand() % (max - min + 1) + min;
-    return random;
+int RandomInRange(int begin, int end) {
+  if ((begin + 1) >= end) throw std::invalid_argument("");
+  int length = end - begin;
+  return ((rand() % length) + begin);
 }
 
-void Swap(int* num1, int* num2)
-{
-    int temp = *num1;
-    *num1 = *num2;
-    *num2 = temp;
-}
-
-int Partition(int data[], int length, int start, int end)
-{
-    if(data == nullptr || length <= 0 || start < 0 || end >= length)
-        throw "Invalid Parameters";
-
-    int index = RandomInRange(start, end);
-    Swap(&data[index], &data[end]);
-
-    int small = start - 1;
-    for(index = start; index < end; ++ index)
-    {
-        if(data[index] < data[end])
-        {
-            ++ small;
-            if(small != index)
-                Swap(&data[index], &data[small]);
-        }
+int Partition(int *data, int begin, int end) {
+  // This function should not be invoked when the data contain zero or only one item, and this
+  // invoke condition must be ensured by the caller, because the caller must need to do this thing
+  // no matter what is done here, so just throw exception.
+  // Note that the "begin" and "end" can be unsigned type, so the condition mustn't contain minus
+  // operator, in order to avoid something like you think the number is a negative number but
+  // actually it is a very large positive number.
+  if ((data == nullptr) || ((begin + 1) >= end)) throw std::invalid_argument("");
+  int pivot_idx = RandomInRange(begin, end);
+  std::swap(data[pivot_idx], data[end - 1]);
+  int pivot = data[end - 1];
+  int small_idx = begin;
+  for (int i = begin; i < end; ++i) {
+    if (data[i] < pivot) {
+      if (i != small_idx) {
+        std::swap(data[small_idx], data[i]);
+      }
+      ++small_idx;
     }
-
-    ++ small;
-    Swap(&data[small], &data[end]);
-
-    return small;
+  }
+  std::swap(data[small_idx], data[end - 1]);
+  return small_idx;
 }

@@ -20,37 +20,35 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <stack>
 #include <stdexcept>
 
-template <typename T> class CQueue
-{
-public:
+template <typename T>
+class CQueue {
+ public:
   CQueue(void);
   ~CQueue(void);
-    
+
   // 在队列末尾添加一个结点
   void appendTail(const T& node);
-  
+
   // 删除队列的头结点
   T deleteHead();
 
-private:
+ private:
   std::stack<T> stack1;
   std::stack<T> stack2;
 };
 
-template <typename T> CQueue<T>::CQueue(void)
-{
-}
+template <typename T>
+CQueue<T>::CQueue(void) {}
 
-template <typename T> CQueue<T>::~CQueue(void)
-{
-}
+template <typename T>
+CQueue<T>::~CQueue(void) {}
 
-template<typename T>
+template <typename T>
 void CQueue<T>::appendTail(const T& element) {
   stack1.push(element);
-} 
+}
 
-template<typename T>
+template <typename T>
 T CQueue<T>::deleteHead() {
   if (stack2.empty() == true) {
     while (stack1.empty() == false) {

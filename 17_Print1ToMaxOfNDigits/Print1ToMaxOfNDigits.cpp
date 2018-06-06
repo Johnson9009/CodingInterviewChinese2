@@ -81,6 +81,7 @@ void Print1ToMaxOfNDigits_2(int n) {
   char* number_str = new char[n + 1];
   std::memset(number_str, 0, (n + 1) * sizeof(char));
   Print1ToMaxOfNDigits_Recursively(number_str, n, 0);
+  delete[] number_str;
   return;
 }
 

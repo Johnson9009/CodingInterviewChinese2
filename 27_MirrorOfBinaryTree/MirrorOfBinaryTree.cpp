@@ -19,36 +19,42 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <stack>
 #include "../Utilities/BinaryTree.h"
 
-void MirrorRecursively(BinaryTreeNode* pNode) {
-  if ((pNode == nullptr) || (pNode->m_pLeft == nullptr && pNode->m_pRight)) return;
-
-  BinaryTreeNode* pTemp = pNode->m_pLeft;
-  pNode->m_pLeft = pNode->m_pRight;
-  pNode->m_pRight = pTemp;
-
-  if (pNode->m_pLeft) MirrorRecursively(pNode->m_pLeft);
-
-  if (pNode->m_pRight) MirrorRecursively(pNode->m_pRight);
+void MirrorRecursively(BinaryTreeNode* root) {
+  if ((root == nullptr) || ((root->m_pLeft == nullptr) && (root->m_pRight == nullptr))) return;
+  BinaryTreeNode* tmp = root->m_pLeft;
+  root->m_pLeft = root->m_pRight;
+  root->m_pRight = tmp;
+  if ((root->m_pLeft != nullptr) &&
+      ((root->m_pLeft->m_pLeft != nullptr) || (root->m_pLeft->m_pRight != nullptr))) {
+    MirrorRecursively(root->m_pLeft);
+  }
+  if ((root->m_pRight != nullptr) &&
+      ((root->m_pRight->m_pLeft != nullptr) || (root->m_pRight->m_pRight != nullptr))) {
+    MirrorRecursively(root->m_pRight);
+  }
+  return;
 }
 
-void MirrorIteratively(BinaryTreeNode* pRoot) {
-  if (pRoot == nullptr) return;
-
-  std::stack<BinaryTreeNode*> stackTreeNode;
-  stackTreeNode.push(pRoot);
-
-  while (stackTreeNode.size() > 0) {
-    BinaryTreeNode* pNode = stackTreeNode.top();
-    stackTreeNode.pop();
-
-    BinaryTreeNode* pTemp = pNode->m_pLeft;
-    pNode->m_pLeft = pNode->m_pRight;
-    pNode->m_pRight = pTemp;
-
-    if (pNode->m_pLeft) stackTreeNode.push(pNode->m_pLeft);
-
-    if (pNode->m_pRight) stackTreeNode.push(pNode->m_pRight);
+void MirrorIteratively(BinaryTreeNode* root) {
+  if ((root == nullptr) || ((root->m_pLeft == nullptr) && (root->m_pRight == nullptr))) return;
+  std::stack<BinaryTreeNode*> nodes;
+  nodes.push(root);
+  while (nodes.empty() == false) {
+    BinaryTreeNode* node = nodes.top();
+    nodes.pop();
+    BinaryTreeNode* tmp = node->m_pLeft;
+    node->m_pLeft = node->m_pRight;
+    node->m_pRight = tmp;
+    if ((node->m_pLeft != nullptr) &&
+        ((node->m_pLeft->m_pLeft != nullptr) || (node->m_pLeft->m_pRight != nullptr))) {
+      nodes.push(node->m_pLeft);
+    }
+    if ((node->m_pRight != nullptr) &&
+        ((node->m_pRight->m_pLeft != nullptr) || (node->m_pRight->m_pRight != nullptr))) {
+      nodes.push(node->m_pRight);
+    }
   }
+  return;
 }
 
 // ====================测试代码====================

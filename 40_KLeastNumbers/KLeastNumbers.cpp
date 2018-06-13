@@ -8,23 +8,21 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// 《剑指Offer――名企面试官精讲典型编程题》代码
-// 作者：何海涛
+// 《剑指Offer——名企面试官精讲典型编程题》代码
+// 作者: 何海涛
 //==================================================================
 
-// 面试题40：最小的k个数
-// 题目：输入n个整数，找出其中最小的k个数。例如输入4、5、1、6、2、7、3、8
-// 这8个数字，则最小的4个数字是1、2、3、4。
+// 面试题40: 最小的k个数
+// 题目: 输入n个整数, 找出其中最小的k个数. 例如输入4, 5, 1, 6, 2, 7, 3, 8这8个数字, 则最小的4个数字
+// 是1, 2, 3, 4.
 
 #include <cstdio>
 #include "../Utilities/Array.h"
 
 #include <functional>
 #include <iostream>
-#include <set>
+#include <queue>
 #include <vector>
-
-using namespace std;
 
 // ====================方法1====================
 void GetLeastNumbers_Solution1(int* data, int length, int* output, int k) {
@@ -48,36 +46,29 @@ void GetLeastNumbers_Solution1(int* data, int length, int* output, int k) {
 }
 
 // ====================方法2====================
-typedef multiset<int, std::greater<int> > intSet;
-typedef multiset<int, std::greater<int> >::iterator setIterator;
+void GetLeastNumbers_Solution2(std::vector<int>* data, std::priority_queue<int>* leastNumbers,
+                               int k) {
+  if ((data == nullptr) || (leastNumbers == nullptr) || (k <= 0) ||
+      (k > static_cast<int>(data->size()))) {
+    throw std::invalid_argument("");
+  }
 
-void GetLeastNumbers_Solution2(const vector<int>& data, intSet& leastNumbers, int k) {
-  leastNumbers.clear();
-
-  if (k < 1 || data.size() < k) return;
-
-  vector<int>::const_iterator iter = data.begin();
-  for (; iter != data.end(); ++iter) {
-    if ((leastNumbers.size()) < k)
-      leastNumbers.insert(*iter);
-
-    else {
-      setIterator iterGreatest = leastNumbers.begin();
-
-      if (*iter < *(leastNumbers.begin())) {
-        leastNumbers.erase(iterGreatest);
-        leastNumbers.insert(*iter);
+  for (auto const& number : *data) {
+    if (leastNumbers->size() < static_cast<std::size_t>(k)) {
+      leastNumbers->push(number);
+    } else {
+      if (number < leastNumbers->top()) {
+        leastNumbers->pop();
+        leastNumbers->push(number);
       }
     }
   }
+  return;
 }
 
 // ====================测试代码====================
 void Test(char const* testName, int* data, int n, int* expectedResult, int k) {
   if (testName != nullptr) printf("%s begins: \n", testName);
-
-  vector<int> vectorData;
-  for (int i = 0; i < n; ++i) vectorData.push_back(data[i]);
 
   if (expectedResult == nullptr)
     printf("The input is invalid, we don't expect any result.\n");
@@ -104,11 +95,24 @@ void Test(char const* testName, int* data, int n, int* expectedResult, int k) {
   delete[] output;
 
   printf("Result for solution2:\n");
-  intSet leastNumbers;
-  GetLeastNumbers_Solution2(vectorData, leastNumbers, k);
-  printf("The actual output numbers are:\n");
-  for (setIterator iter = leastNumbers.begin(); iter != leastNumbers.end(); ++iter)
-    printf("%d\t", *iter);
+  std::vector<int> vectorData;
+  for (int i = 0; i < n; ++i) vectorData.push_back(data[i]);
+  std::priority_queue<int> leastNumbers;
+  try {
+    GetLeastNumbers_Solution2(&vectorData, &leastNumbers, k);
+    printf("The actual output numbers are:\n");
+    while (leastNumbers.empty() == false) {
+      printf("%d\t", leastNumbers.top());
+      leastNumbers.pop();
+    }
+  } catch (std::invalid_argument const& ia) {
+    if (expectedResult == nullptr) {
+      printf("Passed!\n");
+    } else {
+      printf("Failed!\n");
+    }
+  }
+
   printf("\n\n");
 }
 

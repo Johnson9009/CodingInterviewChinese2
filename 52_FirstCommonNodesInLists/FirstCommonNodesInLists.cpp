@@ -8,12 +8,12 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// 《剑指Offer――名企面试官精讲典型编程题》代码
-// 作者：何海涛
+// 《剑指Offer——名企面试官精讲典型编程题》代码
+// 作者: 何海涛
 //==================================================================
 
-// 面试题52：两个链表的第一个公共结点
-// 题目：输入两个链表，找出它们的第一个公共结点。
+// 面试题52: 两个链表的第一个公共结点
+// 题目: 输入两个链表, 找出它们的第一个公共结点.
 
 #include <cstdio>
 #include <stdexcept>
@@ -35,7 +35,7 @@ ListNode* FindFirstCommonNode(ListNode* head1, ListNode* head2) {
   int length1 = GetListLength(head1);
   int length2 = GetListLength(head2);
   ListNode* long_list_node = head1;
-  ListNode* short_list_node = head2;  
+  ListNode* short_list_node = head2;
   if (length2 > length1) {
     long_list_node = head2;
     short_list_node = head1;

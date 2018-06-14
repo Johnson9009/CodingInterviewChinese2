@@ -8,16 +8,18 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// 《剑指Offer――名企面试官精讲典型编程题》代码
-// 作者：何海涛
+// 《剑指Offer——名企面试官精讲典型编程题》代码
+// 作者: 何海涛
 //==================================================================
 
-// 面试题55（二）：平衡二叉树
-// 题目：输入一棵二叉树的根结点，判断该树是不是平衡二叉树。如果某二叉树中
-// 任意结点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。
+// 面试题55(二): 平衡二叉树
+// 题目: 输入一棵二叉树的根结点, 判断该树是不是平衡二叉树. 如果某二叉树中任意结点的左右子树的深度相
+// 差不超过1, 那么它就是一棵平衡二叉树.
 
+#include <algorithm>
 #include <cstdio>
 #include <cstdlib>
+#include <stdexcept>
 #include "../Utilities/BinaryTree.h"
 
 // ====================方法1====================
@@ -37,29 +39,25 @@ bool IsBalanced_Solution1(BinaryTreeNode const* root) {
 }
 
 // ====================方法2====================
-bool IsBalanced(const BinaryTreeNode* pRoot, int* pDepth);
-
-bool IsBalanced_Solution2(const BinaryTreeNode* pRoot) {
-  int depth = 0;
-  return IsBalanced(pRoot, &depth);
-}
-
-bool IsBalanced(const BinaryTreeNode* pRoot, int* pDepth) {
-  if (pRoot == nullptr) {
-    *pDepth = 0;
+bool IsBalanced_Solution2Core(BinaryTreeNode const* root, int* depth) {
+  if (depth == nullptr) throw std::invalid_argument("");
+  if (root == nullptr) {
+    *depth = 0;
     return true;
   }
-
-  int left, right;
-  if (IsBalanced(pRoot->m_pLeft, &left) && IsBalanced(pRoot->m_pRight, &right)) {
-    int diff = left - right;
-    if (diff <= 1 && diff >= -1) {
-      *pDepth = 1 + (left > right ? left : right);
-      return true;
-    }
+  int left_depth = 0;
+  int right_depth = 0;
+  if ((IsBalanced_Solution2Core(root->m_pLeft, &left_depth) == true) &&
+      (IsBalanced_Solution2Core(root->m_pRight, &right_depth) == true)) {
+    *depth = 1 + std::max(left_depth, right_depth);
+    return (std::abs(left_depth - right_depth) <= 1);
   }
-
   return false;
+}
+
+bool IsBalanced_Solution2(BinaryTreeNode const* root) {
+  int depth = 0;
+  return IsBalanced_Solution2Core(root, &depth);
 }
 
 // ====================测试代码====================
@@ -80,11 +78,11 @@ void Test(const char* testName, const BinaryTreeNode* pRoot, bool expected) {
 }
 
 // 完全二叉树
-//             1
-//         /      \
-//        2        3
-//       /\       / \
-//      4  5     6   7
+//           1
+//         /   \
+//        2     3
+//       / \   / \
+//      4   5 6   7
 void Test1() {
   BinaryTreeNode* pNode1 = CreateBinaryTreeNode(1);
   BinaryTreeNode* pNode2 = CreateBinaryTreeNode(2);
@@ -104,13 +102,13 @@ void Test1() {
 }
 
 // 不是完全二叉树，但是平衡二叉树
-//             1
-//         /      \
-//        2        3
-//       /\         \
-//      4  5         6
-//        /
-//       7
+//          1
+//         / \
+//        2   3
+//       / \   \
+//      4   5   6
+//         /
+//        7
 void Test2() {
   BinaryTreeNode* pNode1 = CreateBinaryTreeNode(1);
   BinaryTreeNode* pNode2 = CreateBinaryTreeNode(2);
@@ -131,9 +129,9 @@ void Test2() {
 }
 
 // 不是平衡二叉树
-//             1
-//         /      \
-//        2        3
+//          1
+//         / \
+//        2   3
 //       / \
 //      4   5
 //         /
